@@ -5,7 +5,16 @@ description: A new Flutter project.
 environment: 
   sdk: '>=2.19.6 <3.0.0'
 
-dependencies: 
+dependencies:
+
+  #Firebase
+  firebase_core:
+  firebase_auth:
+  cloud_firestore:
+  firebase_database:
+  firebase_storage:
+  firebase_crashlytics:
+
   cupertino_icons: ^1.0.2
   google_fonts: any
   flutter_screenutil: any
@@ -16,6 +25,7 @@ dependencies:
   multicast_dns:
   font_awesome_flutter: ^10.4.0
   syncfusion_flutter_charts:
+  intl:
   flutter: 
     sdk: flutter
 

@@ -11,13 +11,15 @@ class DrawerWidget extends StatelessWidget {
     var mapDrawer = {
       'icons': [
         Icons.sensors,
+        Icons.remove_circle_outline,
         Icons.inventory_2_outlined,
         Icons.group_outlined,
         Icons.groups,
       ],
-      'name': ['Sensores', 'Lotes','Clientes','Funcionarios'],
+      'name': ['Sensores', 'Perdas','Lotes','Clientes','Funcionarios'],
       'route': [
-        Routes.HOME
+        Routes.HOME,
+        Routes.PERDAS,
       ]
     };
 
@@ -43,7 +45,7 @@ class DrawerWidget extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(mapDrawer['route']![index] as String);
                 },
-                horizontalTitleGap: 0,
+                horizontalTitleGap: 8,
                 leading: Icon(mapDrawer['icons']![index] as IconData),
                 title: Text(mapDrawer['name']![index] as String),
               );

@@ -6,6 +6,7 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const SENSORES = _Paths.SENSORES;
   static const DETAILS_SENSOR = _Paths.DETAILS_SENSOR;
+  static const PERDAS = _Paths.PERDAS;
 }
 
 abstract class _Paths {
@@ -13,4 +14,5 @@ abstract class _Paths {
   static const HOME = '/home';
   static const SENSORES = '/sensores';
   static const DETAILS_SENSOR = '/details-sensor';
+  static const PERDAS = '/perdas';
 }

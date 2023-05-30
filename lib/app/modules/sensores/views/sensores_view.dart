@@ -1,8 +1,8 @@
 import 'package:embedded_system/app/data/models/setores.dart';
 import 'package:embedded_system/app/helpers/shered_widgets/responsive.dart';
-import 'package:embedded_system/app/helpers/shered_widgets/search_bar.dart';
 import 'package:embedded_system/app/modules/home/views/widget/drawer_widget.dart';
 import 'package:embedded_system/app/modules/sensores/views/widgets/setores_card.dart';
+import 'package:embedded_system/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,12 +14,6 @@ class SensoresView extends GetView<SensoresController> {
   const SensoresView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var listSetores = [
-      Setores(icon: Icons.pets_outlined, name: 'Granja'),
-      Setores(icon: Icons.factory, name: 'Fábrica'),
-      Setores(icon: Icons.storage, name: 'Armazenamento'),
-    ];
-
     return GetBuilder<SensoresController>(
         autoRemove: false,
         builder: (_) {
@@ -45,10 +39,17 @@ class SensoresView extends GetView<SensoresController> {
                   height: 150,
                   child: ListView.builder(
                     padding: EdgeInsets.symmetric(horizontal: 8.sp),
-                    itemCount: listSetores.length,
+                    itemCount: controller.listSetores.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (_, index) {
-                      return SetoresCard(setores: listSetores[index]);
+                      return SetoresCard(
+                        setores: controller.listSetores[index],
+                        select: () {
+                          controller.selectedIndex.value = index;
+                          controller.update();
+                        },
+                        isSelected: controller.selectedIndex.value == index,
+                      );
                     },
                   ),
                 ),
@@ -63,20 +64,29 @@ class SensoresView extends GetView<SensoresController> {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                SearchBar(
-                  controller: TextEditingController(),
-                ),
-                ListView.builder(
-                    itemCount: 3,
-                    shrinkWrap: true,
-                    itemBuilder: (_,index){
-                  return ListTile(
-                    selected: index==0,
-                    onTap: (){},
-                    title: Text('Sensor ${index + 1}'),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                  );
-                })
+                if (controller.listSetores.isNotEmpty)
+                  ListView.builder(
+                      itemCount: controller
+                          .listSetores[controller.selectedIndex.value]
+                          .listSensores
+                          .length,
+                      shrinkWrap: true,
+                      itemBuilder: (_, index) {
+                        String value = controller
+                            .listSetores[controller.selectedIndex.value]
+                            .listSensores[index];
+                        return ListTile(
+                          selected: index == 0,
+                          onTap: () {
+                            if (context.isPhone) {
+                              Get.toNamed(Routes.DETAILS_SENSOR,
+                                  arguments: value);
+                            }
+                          },
+                          title: Text(value),
+                          trailing: const Icon(Icons.arrow_forward_ios),
+                        );
+                      })
               ],
             ),
           );

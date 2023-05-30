@@ -1,59 +1,71 @@
-import 'package:embedded_system/app/data/models/temperature_humidity_monitor.dart';
+import 'package:embedded_system/app/data/models/sensor.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class GraficoWidget extends StatelessWidget {
-  final List<TemperatureHumidityMonitor> data;
+  final List<Sensor> data;
   const GraficoWidget({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 400,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SfCartesianChart(
-              primaryXAxis: CategoryAxis(),
-              // Chart title
-              title: ChartTitle(text: 'Temperatura durante o dia'),
-              // Enable legend
-              legend: Legend(isVisible: true),
-              // Enable tooltip
-              tooltipBehavior: TooltipBehavior(enable: true),
-              series: <ChartSeries<TemperatureHumidityMonitor, int>>[
-                LineSeries<TemperatureHumidityMonitor, int>(
-                    dataSource: data,
-                    xValueMapper: (TemperatureHumidityMonitor sales, _) =>
-                        sales.timestamp.hour,
-                    yValueMapper: (TemperatureHumidityMonitor sales, _) =>
-                        sales.temperature.roundToDouble(),
-                    name: '',
-                    // Enable data label
-                    dataLabelSettings: const DataLabelSettings(isVisible: true))
-              ]),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              //Initialize the spark charts widget
-              child: SfSparkLineChart.custom(
-                //Enable the trackball
-                trackball: const SparkChartTrackball(
-                    activationMode: SparkChartActivationMode.tap),
-                //Enable marker
-                marker: const SparkChartMarker(
-                    displayMode: SparkChartMarkerDisplayMode.all),
-                //Enable data label
-                labelDisplayMode: SparkChartLabelDisplayMode.all,
-                xValueMapper: (int index) => data[index].timestamp,
-                yValueMapper: (int index) => data[index].temperature,
-                dataCount: 5,
-              ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SfCartesianChart(
+          title: ChartTitle(text: 'Temperatura e umidade durante o dia'),
+          // Enable legend
+          legend: Legend(isVisible: true, position: LegendPosition.bottom),
+          axes: <ChartAxis>[
+            NumericAxis(
+              name: 'yAxis',
+              opposedPosition: true,
+              title: AxisTitle(text: 'Umidade'),
+              labelFormat: '',
+              interval: 20,
+              maximum: 100,
+              minimum: 0,
             ),
-          )
-        ],
-      ),
+          ],
+
+          primaryXAxis: DateTimeAxis(
+              //Specified date time interval type in hours
+              title: AxisTitle(text: 'Horas'),
+              intervalType: DateTimeIntervalType.minutes,
+              interval: 30),
+          primaryYAxis: NumericAxis(
+              title: AxisTitle(text: 'Temperaturas'),
+              labelFormat: '',
+              maximum: 50,
+              interval: 5,
+              minimum: 20),
+          zoomPanBehavior: ZoomPanBehavior(
+            enableDoubleTapZooming: true,
+            enablePanning: true,
+            zoomMode: ZoomMode.xy,
+          ),
+          tooltipBehavior: TooltipBehavior(enable: true),
+          series: <ChartSeries<Sensor, DateTime>>[
+            LineSeries<Sensor, DateTime>(
+              dataSource: data,
+              xAxisName: 'name',
+              xValueMapper: (Sensor sales, _) => sales.timestamp,
+              yValueMapper: (Sensor sales, _) => sales.temperatura,
+              name: 'Temperaduras',
+              dataLabelSettings: const DataLabelSettings(isVisible: false),
+            ),
+            LineSeries<Sensor, DateTime>(
+              dataSource: data,
+              xAxisName: 'name',
+              xValueMapper: (Sensor sales, _) => sales.timestamp,
+              yValueMapper: (Sensor sales, _) => sales.humidade,
+              name: 'Umidade',
+              yAxisName: 'yAxis',
+              dataLabelSettings: const DataLabelSettings(isVisible: false),
+            )
+          ],
+        ),
+      ],
     );
   }
 }
+//

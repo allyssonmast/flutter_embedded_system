@@ -4,6 +4,8 @@ import '../modules/details_sensor/bindings/details_sensor_binding.dart';
 import '../modules/details_sensor/views/details_sensor_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/perdas/bindings/perdas_binding.dart';
+import '../modules/perdas/views/perdas_view.dart';
 import '../modules/sensores/bindings/sensores_binding.dart';
 import '../modules/sensores/views/sensores_view.dart';
 
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.DETAILS_SENSOR,
       page: () => const DetailsSensorView(),
       binding: DetailsSensorBinding(),
+    ),
+    GetPage(
+      name: _Paths.PERDAS,
+      page: () => const PerdasView(),
+      binding: PerdasBinding(),
     ),
   ];
 }

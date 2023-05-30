@@ -1,23 +1,23 @@
-import 'package:multicast_dns/multicast_dns.dart';
+class Sensor {
+  String? name;
+  final DateTime timestamp;
+  final double temperatura;
+  final double humidade;
 
-class MdnsResponse {
-  final String name;
-  final String target;
-  final int type;
-  final int port;
-
-  MdnsResponse({
-    required this.name,
-    required this.target,
-    required this.type,
-    required this.port,
+  Sensor({
+    this.name,
+    required this.timestamp,
+    required this.temperatura,
+    required this.humidade,
   });
-
-  factory MdnsResponse.fromRawResponse(SrvResourceRecord rawResponse) {
-    return MdnsResponse(
-        name: rawResponse.name,
-        type: rawResponse.resourceRecordType,
-        port: rawResponse.resourceRecordType,
-        target: rawResponse.target);
-  }
+  factory Sensor.fromJson(Map<String, dynamic> json) => Sensor(
+        timestamp: DateTime.parse(json['timestemp']),
+        name: '',
+        temperatura: json['temperatura'] is int
+            ? (json['temperatura'] as int).toDouble()
+            : json['temperatura'],
+        humidade: json['umidade'] is int
+            ? (json['umidade'] as int).toDouble()
+            : json['umidade'],
+      );
 }

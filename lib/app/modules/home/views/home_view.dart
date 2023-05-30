@@ -12,10 +12,10 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: ResponsiveWidget(
         desktop: Row(
-          children: const [
+          children: [
             DrawerWidget(),
             Expanded(
               child: Card(
@@ -32,7 +32,7 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
         tablet: Row(
-          children: const [
+          children: [
             Expanded(
               child: SensoresView(),
             ),
@@ -41,7 +41,7 @@ class HomeView extends GetView<HomeController> {
             ),
           ],
         ),
-        mobile: const SensoresView(),
+        mobile: SensoresView(),
       ),
     );
   }
