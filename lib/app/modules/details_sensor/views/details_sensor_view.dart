@@ -37,6 +37,7 @@ class DetailsSensorView extends GetView<DetailsSensorController> {
                             var result = await showDatePicker(
                               context: context,
                               initialDate: dateTime,
+                              locale: const Locale('pt','BR'),
                               firstDate: DateTime.now()
                                   .add(const Duration(days: -365)),
                               lastDate: DateTime.now(),

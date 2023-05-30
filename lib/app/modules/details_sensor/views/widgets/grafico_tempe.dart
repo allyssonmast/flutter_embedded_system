@@ -1,5 +1,6 @@
 import 'package:embedded_system/app/data/models/sensor.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class GraficoWidget extends StatelessWidget {
@@ -20,7 +21,7 @@ class GraficoWidget extends StatelessWidget {
               name: 'yAxis',
               opposedPosition: true,
               title: AxisTitle(text: 'Umidade'),
-              labelFormat: '',
+              labelFormat: '{value}%',
               interval: 20,
               maximum: 100,
               minimum: 0,
@@ -28,16 +29,20 @@ class GraficoWidget extends StatelessWidget {
           ],
 
           primaryXAxis: DateTimeAxis(
-              //Specified date time interval type in hours
-              title: AxisTitle(text: 'Horas'),
-              intervalType: DateTimeIntervalType.minutes,
-              interval: 30),
+            //Specified date time interval type in hours
+            title: AxisTitle(text: 'Horas'),
+            intervalType: DateTimeIntervalType.hours,
+            dateFormat: DateFormat('HH:mm'),
+            interval: 4,
+            labelFormat: '{value}h',
+          ),
           primaryYAxis: NumericAxis(
-              title: AxisTitle(text: 'Temperaturas'),
-              labelFormat: '',
-              maximum: 50,
-              interval: 5,
-              minimum: 20),
+            title: AxisTitle(text: 'Temperaturas'),
+            maximum: 40,
+            interval: 5,
+            labelFormat: '{value}°C',
+            minimum: 20,
+          ),
           zoomPanBehavior: ZoomPanBehavior(
             enableDoubleTapZooming: true,
             enablePanning: true,
