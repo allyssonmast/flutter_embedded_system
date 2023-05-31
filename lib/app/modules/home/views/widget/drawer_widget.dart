@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../routes/app_pages.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -18,8 +17,7 @@ class DrawerWidget extends StatelessWidget {
       ],
       'name': ['Sensores', 'Perdas','Lotes','Clientes','Funcionarios'],
       'route': [
-        Routes.HOME,
-        Routes.PERDAS,
+
       ]
     };
 

@@ -3,39 +3,55 @@ version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
 environment: 
-  sdk: '>=2.19.6 <3.0.0'
+  sdk: '>=3.0.2 <4.0.0'
 
 dependencies:
 
   #Firebase
   firebase_core:
   firebase_auth:
+  firebase_analytics:
   cloud_firestore:
   firebase_database:
   firebase_storage:
   firebase_crashlytics:
 
   auto_route:
+  bloc:
+  flutter_bloc:
+  get_it:
+  injectable:
+  json_annotation:
+  freezed_annotation:
+  equatable:
+  dartz:
 
+  shared_preferences:
+  validadores:
   cupertino_icons: ^1.0.2
-  google_fonts: any
-  flutter_screenutil: any
-  http: any
-  equatable: any
-  dartz: any
-  get: 4.6.5
-  multicast_dns:
+  google_fonts:
+  flutter_screenutil:
   font_awesome_flutter: ^10.4.0
   syncfusion_flutter_charts:
   intl:
+  rounded_loading_button:
+
+  get:
+
   flutter: 
     sdk: flutter
+
   flutter_localizations:
     sdk: flutter
 
 dev_dependencies:
+
   auto_route_generator:
   build_runner:
+  freezed:
+  injectable_generator:
+  json_serializable: ^6.6.2
+
   flutter_lints: ^2.0.0
   flutter_test: 
     sdk: flutter

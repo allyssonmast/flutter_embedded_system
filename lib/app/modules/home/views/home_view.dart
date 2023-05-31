@@ -2,7 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:embedded_system/app/helpers/shered_widgets/responsive.dart';
 import 'package:embedded_system/app/modules/details_sensor/views/details_sensor_view.dart';
 import 'package:embedded_system/app/modules/home/views/widget/drawer_widget.dart';
-import 'package:embedded_system/app/modules/sensores/views/sensores_view.dart';
+import 'package:embedded_system/app/modules/sensores/presentation/page/setors_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -22,7 +22,7 @@ class HomeView extends GetView<HomeController> {
             Expanded(
               child: Card(
                 margin: EdgeInsets.all(8.0),
-                child: SensoresView(),
+                child: SetoresPage(),
               ),
             ),
             Expanded(
@@ -36,14 +36,14 @@ class HomeView extends GetView<HomeController> {
         tablet: Row(
           children: [
             Expanded(
-              child: SensoresView(),
+              child: SetoresPage(),
             ),
             Expanded(
               child: DetailsSensorView(),
             ),
           ],
         ),
-        mobile: SensoresView(),
+        mobile: SetoresPage(),
       ),
     );
   }

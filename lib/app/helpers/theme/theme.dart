@@ -7,6 +7,9 @@ var lightTheme = ThemeData(
   textTheme: GoogleFonts.latoTextTheme(
     ThemeData().textTheme,
   ).apply(displayColor: Colors.black),
+  appBarTheme: const AppBarTheme(
+    centerTitle: true,
+  ),
   colorSchemeSeed: Colors.green,
 );
 
