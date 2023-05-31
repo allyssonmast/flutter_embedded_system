@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'bloc_observer.dart';
-import 'firebase_options.dart';
+import 'app/config/firebase_options.dart';
 import 'injection.dart';
 import 'myapp.dart';
 

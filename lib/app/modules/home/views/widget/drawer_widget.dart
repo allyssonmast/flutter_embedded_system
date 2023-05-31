@@ -1,6 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -15,10 +14,7 @@ class DrawerWidget extends StatelessWidget {
         Icons.group_outlined,
         Icons.groups,
       ],
-      'name': ['Sensores', 'Perdas','Lotes','Clientes','Funcionarios'],
-      'route': [
-
-      ]
+      'name': ['Sensores', 'Perdas', 'Lotes', 'Clientes', 'Funcionarios'],
     };
 
     return Drawer(
@@ -39,9 +35,11 @@ class DrawerWidget extends StatelessWidget {
             itemCount: mapDrawer['icons']!.length,
             itemBuilder: (_, index) {
               return ListTile(
-                selected: index==0,
+                selected: index == 0,
                 onTap: () {
-                  Get.toNamed(mapDrawer['route']![index] as String);
+                  context.router.pop();
+                  final tabsRouter = AutoTabsRouter.of(context);
+                  tabsRouter.setActiveIndex(index);
                 },
                 horizontalTitleGap: 8,
                 leading: Icon(mapDrawer['icons']![index] as IconData),

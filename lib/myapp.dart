@@ -3,11 +3,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 import 'app/helpers/theme/theme.dart';
 import 'app/routes/routes_imports.dart';
-
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -27,7 +25,7 @@ class _MyAppState extends State<MyApp> {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return GetMaterialApp.router(
+        return MaterialApp.router(
           title: "Vitagema",
           routeInformationParser: _appRouter.defaultRouteParser(),
           routerDelegate: _appRouter.delegate(

@@ -36,8 +36,6 @@ dependencies:
   intl:
   rounded_loading_button:
 
-  get:
-
   flutter: 
     sdk: flutter
 

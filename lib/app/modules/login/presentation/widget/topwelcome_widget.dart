@@ -7,11 +7,14 @@ class WidgetTopWelcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 40),
-        Text('Welcome Buddies', style: Theme.of(context).textTheme.bodyLarge),
-        Text(' Login to book your seat, I said its your seat',
+        const CircleAvatar(
+          radius: 40,
+          backgroundImage: NetworkImage(
+              'https://media.licdn.com/dms/image/C4D0BAQGnME1IMU3vtA/company-logo_200_200/0/1522161926314?e=2147483647&v=beta&t=N6qvBwAU3BRDnzznKEvMFA2QoDC7EaCxWOAN3ZiHBNU'),
+        ),
+        Text('Seja Bem-vindo', style: Theme.of(context).textTheme.bodyLarge),
+        Text('Faça login para acessa sua conta',
             style: Theme.of(context).textTheme.bodyMedium),
-        const SizedBox(height: 30),
       ],
     );
   }

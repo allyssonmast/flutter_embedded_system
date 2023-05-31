@@ -52,47 +52,55 @@ class _LoginPageState extends State<LoginPage> {
                 key: formKey12,
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const WidgetTopWelcome(),
-                      const SizedBox(height: 32),
-                      CustomerTextField(
-                        name: 'Email',
-                        controller: emailController,
-                        validator: (value) => Validador()
-                            .add(Validar.EMAIL, msg: "Insira um email válido!")
-                            .valido(value),
-                      ),
-                      CustomerTextField(
-                        name: 'Password',
-                        isPassword: true,
-                        controller: passwordController,
-                      ),
-                      RoundedLoadingButton(
-                        color: Theme.of(context).cardColor,
-                        controller: _btnController,
-                        onPressed: () async {
-                          if (formKey12.currentState!.validate()) {
-                            final email = emailController.text;
-                            final password = passwordController.text;
+                  child: Center(
+                    child: Container(
+                      alignment: Alignment.center,
+                      constraints: const BoxConstraints(maxWidth: 400),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const WidgetTopWelcome(),
+                          const SizedBox(height: 32),
+                          CustomerTextField(
+                            name: 'Email',
+                            controller: emailController,
+                            validator: (value) => Validador()
+                                .add(Validar.EMAIL,
+                                    msg: "Insira um email válido!")
+                                .valido(value),
+                          ),
+                          CustomerTextField(
+                            name: 'Password',
+                            isPassword: true,
+                            controller: passwordController,
+                          ),
+                          RoundedLoadingButton(
+                            color: Theme.of(context).cardColor,
+                            controller: _btnController,
+                            onPressed: () async {
+                              if (formKey12.currentState!.validate()) {
+                                final email = emailController.text;
+                                final password = passwordController.text;
 
-                            context.read<LoginBloc>().add(
-                                  LoginWithEmailButtonPressed(
-                                    email: email,
-                                    password: password,
-                                  ),
-                                );
-                          } else {
-                            _btnController.error();
-                            await Future.delayed(const Duration(seconds: 1));
-                            _btnController.reset();
-                          }
-                        },
-                        child: const Text('Login'),
+                                context.read<LoginBloc>().add(
+                                      LoginWithEmailButtonPressed(
+                                        email: email,
+                                        password: password,
+                                      ),
+                                    );
+                              } else {
+                                _btnController.error();
+                                await Future.delayed(
+                                    const Duration(seconds: 1));
+                                _btnController.reset();
+                              }
+                            },
+                            child: const Text('Login'),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
