@@ -1,4 +1,4 @@
-import 'package:embedded_system/app/data/models/setores.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:embedded_system/app/helpers/shered_widgets/responsive.dart';
 import 'package:embedded_system/app/modules/home/views/widget/drawer_widget.dart';
 import 'package:embedded_system/app/modules/sensores/views/widgets/setores_card.dart';
@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 
 import '../controllers/sensores_controller.dart';
 
+@RoutePage()
 class SensoresView extends GetView<SensoresController> {
   const SensoresView({Key? key}) : super(key: key);
   @override

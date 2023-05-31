@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:embedded_system/app/modules/details_sensor/views/widgets/detais_widget_card.dart';
 import 'package:embedded_system/app/modules/details_sensor/views/widgets/grafico_tempe.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:intl/intl.dart';
 
 import '../controllers/details_sensor_controller.dart';
 
+@RoutePage()
 class DetailsSensorView extends GetView<DetailsSensorController> {
   const DetailsSensorView({Key? key}) : super(key: key);
   @override
@@ -21,6 +23,18 @@ class DetailsSensorView extends GetView<DetailsSensorController> {
           appBar: AppBar(
             title: const Text('Detalhes do sensor'),
             centerTitle: true,
+            actions: [
+              CircleAvatar(
+                child: IconButton(
+                  onPressed: () async{
+                    dateTime=DateTime.now();
+                    controller.update();
+                   await controller.fakeTemp(dateTime);
+                  },
+                  icon: const Icon(Icons.update_outlined),
+                ),
+              )
+            ],
           ),
           body: controller.loding.value
               ? const Center(
@@ -37,7 +51,7 @@ class DetailsSensorView extends GetView<DetailsSensorController> {
                             var result = await showDatePicker(
                               context: context,
                               initialDate: dateTime,
-                              locale: const Locale('pt','BR'),
+                              locale: const Locale('pt', 'BR'),
                               firstDate: DateTime.now()
                                   .add(const Duration(days: -365)),
                               lastDate: DateTime.now(),
@@ -62,7 +76,8 @@ class DetailsSensorView extends GetView<DetailsSensorController> {
                               child: DetailsWidgetCard(
                                 iconData: FontAwesomeIcons.temperatureHalf,
                                 temperatura: 'Última temperatura',
-                                valueTemperatura: '${controller.lastSensor!.temperatura} °',
+                                valueTemperatura:
+                                    '${controller.lastSensor!.temperatura} °',
                                 idealValue: '27° até 35°',
                               ),
                             ),
@@ -70,7 +85,8 @@ class DetailsSensorView extends GetView<DetailsSensorController> {
                               child: DetailsWidgetCard(
                                 iconData: Icons.water_drop,
                                 temperatura: 'Última umidade',
-                                valueTemperatura: '${controller.lastSensor!.humidade} %',
+                                valueTemperatura:
+                                    '${controller.lastSensor!.humidade} %',
                                 idealValue: '50 % até 80 %',
                               ),
                             ),
