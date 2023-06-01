@@ -14,10 +14,10 @@ import 'package:embedded_system/app/modules/details_sensor/presentation/page/det
 import 'package:embedded_system/app/modules/home/views/home_view.dart' as _i2;
 import 'package:embedded_system/app/modules/login/presentation/page/login_page.dart'
     as _i3;
-import 'package:embedded_system/app/modules/perdas/views/perdas_view.dart'
-    as _i4;
-import 'package:embedded_system/app/modules/setores/presentation/page/setors_page.dart'
+import 'package:embedded_system/app/modules/perdas/presentation/page/perdas_page.dart'
     as _i5;
+import 'package:embedded_system/app/modules/setores/presentation/page/setors_page.dart'
+    as _i4;
 import 'package:flutter/material.dart' as _i7;
 
 abstract class $AppRouter extends _i6.RootStackRouter {
@@ -50,16 +50,16 @@ abstract class $AppRouter extends _i6.RootStackRouter {
         child: const _i3.LoginPage(),
       );
     },
-    PerdasViewRoute.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i4.PerdasView(),
-      );
-    },
     SetoresPageRoute.name: (routeData) {
       return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.SetoresPage(),
+        child: const _i4.SetoresPage(),
+      );
+    },
+    PerdasPageRoute.name: (routeData) {
+      return _i6.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i5.PerdasPage(),
       );
     },
   };
@@ -133,21 +133,7 @@ class LoginPageRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.PerdasView]
-class PerdasViewRoute extends _i6.PageRouteInfo<void> {
-  const PerdasViewRoute({List<_i6.PageRouteInfo>? children})
-      : super(
-          PerdasViewRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'PerdasViewRoute';
-
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i5.SetoresPage]
+/// [_i4.SetoresPage]
 class SetoresPageRoute extends _i6.PageRouteInfo<void> {
   const SetoresPageRoute({List<_i6.PageRouteInfo>? children})
       : super(
@@ -156,6 +142,20 @@ class SetoresPageRoute extends _i6.PageRouteInfo<void> {
         );
 
   static const String name = 'SetoresPageRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i5.PerdasPage]
+class PerdasPageRoute extends _i6.PageRouteInfo<void> {
+  const PerdasPageRoute({List<_i6.PageRouteInfo>? children})
+      : super(
+          PerdasPageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PerdasPageRoute';
 
   static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }

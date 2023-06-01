@@ -19,7 +19,7 @@ class AppRouter extends $AppRouter {
               page: SetoresPageRoute.page,
               path: SETORES,
             ),
-            AutoRoute(page: PerdasViewRoute.page, path: PERDAS),
+            AutoRoute(page: PerdasPageRoute.page, path: PERDAS),
           ],
         )
       ];

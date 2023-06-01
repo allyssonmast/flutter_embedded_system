@@ -1,4 +1,6 @@
 import 'package:embedded_system/app/modules/details_sensor/domain/entity/sensor.dart';
+import 'package:embedded_system/app/modules/perdas/domain/entity/perda.dart';
+import 'package:embedded_system/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,13 +28,22 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
   Widget build(BuildContext context) {
     List<SensorEntity> listSensores =
         context.watch<DetailsSensorBloc>().state.sensores ?? [];
+    Perda? perda = context.watch<DetailsSensorBloc>().state.perda;
+    var sensorLast = _searchDerivadas(listSensores);
+
     return Scaffold(
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text('Detalhes do sensor',style: TextStyle(fontSize: 22),),
-            Text(widget.sensorId,style: const TextStyle(fontSize: 14),),
+            const Text(
+              'Detalhes do sensor',
+              style: TextStyle(fontSize: 22),
+            ),
+            Text(
+              widget.sensorId,
+              style: const TextStyle(fontSize: 14),
+            ),
           ],
         ),
         centerTitle: true,
@@ -70,7 +81,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
                   );
                   if (result != null) {
                     dateTime = result;
-                    context.read<DetailsSensorBloc>().add(
+                    getIt<DetailsSensorBloc>().add(
                         DetailsSensorEvent.featData(widget.sensorId, dateTime));
                   }
                 },
@@ -127,11 +138,12 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
             ),
             GraficoWidget(data: listSensores),
             ListView.builder(
-              itemCount: _searchDerivadas(listSensores).length,
+              itemCount: sensorLast.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (_, index) {
-                var sensor = _searchDerivadas(listSensores)[index];
+                var sensor = sensorLast[index];
+
                 return ListTile(
                   title: Text(sensor.name!),
                   subtitle: Text(DateFormat('HH:mm').format(sensor.timestamp)),
@@ -145,16 +157,17 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
             ),
             Card(
               margin: EdgeInsets.all(8.0.sp),
-              child: const ListTile(
-                subtitle: Text('Galinhas'),
-                title: Text(
+              child: ListTile(
+                subtitle: Text(perda!=null?perda.isEgg ? 'Ovos' : 'Galinhas':'Sem perdas'),
+                title: const Text(
                   'Perdas',
                   style: TextStyle(
                     fontWeight: FontWeight.w900,
                   ),
                 ),
+
                 trailing: CircleAvatar(
-                  child: Text('5'),
+                  child: Text(perda!=null?perda.count.toString():'0'),
                 ),
               ),
             )
@@ -167,12 +180,13 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
 
 List<SensorEntity> _searchDerivadas(List<SensorEntity> list) {
   if (list.isNotEmpty) {
-    return [
-      findMaxTemperature(list),
-      findMinTemperature(list),
-      findMaxHumidity(list),
-      findMinHumidity(list)
-    ];
+    List<SensorEntity> newlist = [];
+    newlist.add(findMaxTemperature(list));
+    newlist.add(findMinTemperature(list));
+    // newlist.add(findMaxHumidity(list));
+    //newlist.add( findMinHumidity(list));
+
+    return newlist;
   } else {
     return [];
   }
@@ -182,13 +196,16 @@ SensorEntity findMaxTemperature(List<SensorEntity> dataList) {
   SensorEntity sensor = dataList.reduce(
       (max, current) => max.temperatura > current.temperatura ? max : current);
   sensor.name = 'Temperatura Máx';
+
   return sensor;
 }
 
 SensorEntity findMinTemperature(List<SensorEntity> dataList) {
   var sensor = dataList.reduce(
       (min, current) => min.temperatura < current.temperatura ? min : current);
+
   sensor.name = 'Temperatura Mín';
+
   return sensor;
 }
 
@@ -196,6 +213,7 @@ SensorEntity findMaxHumidity(List<SensorEntity> dataList) {
   var sensor = dataList.reduce(
       (max, current) => max.humidade > current.humidade ? max : current);
   sensor.name = 'Umidade Máx';
+
   return sensor;
 }
 
@@ -203,5 +221,6 @@ SensorEntity findMinHumidity(List<SensorEntity> dataList) {
   var sensor = dataList.reduce(
       (min, current) => min.humidade < current.humidade ? min : current);
   sensor.name = 'Umidade Mín';
+
   return sensor;
 }

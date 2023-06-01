@@ -31,7 +31,7 @@ class DetailsWidgetCard extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(temperatura),
+              child: Text(temperatura,maxLines: 1,overflow: TextOverflow.ellipsis,),
             ),
             Text(
               valueTemperatura,

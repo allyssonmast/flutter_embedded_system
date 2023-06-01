@@ -5,6 +5,6 @@ class NoItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('No contacts were found.'));
+    return const Center(child: Text('Nenhum intem encontrado!'));
   }
 }

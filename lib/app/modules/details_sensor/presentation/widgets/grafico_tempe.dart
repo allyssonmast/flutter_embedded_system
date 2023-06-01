@@ -14,7 +14,7 @@ class GraficoWidget extends StatelessWidget {
       children: [
         SfCartesianChart(
           title: ChartTitle(text: 'Temperatura e umidade durante o dia'),
-          // Enable legend
+
           legend: Legend(isVisible: true, position: LegendPosition.bottom),
           axes: <ChartAxis>[
             NumericAxis(

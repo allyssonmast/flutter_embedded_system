@@ -17,6 +17,7 @@ class DetailsSensorState with _$DetailsSensorState {
   const factory DetailsSensorState({
     @Default(DetailsSensorStatus.initial) DetailsSensorStatus status,
     List<SensorEntity>? sensores,
+    Perda? perda,
     String? errorMessage,
   }) = _DetailsSensorState;
 }

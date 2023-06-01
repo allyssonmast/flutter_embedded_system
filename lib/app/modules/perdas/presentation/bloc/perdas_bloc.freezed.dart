@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'details_sensor_bloc.dart';
+part of 'perdas_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,26 +15,26 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$DetailsSensorEvent {
+mixin _$PerdasEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() loading,
-    required TResult Function(String id, DateTime dateTime) featData,
+    required TResult Function(Perda perda) featData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? loading,
-    TResult? Function(String id, DateTime dateTime)? featData,
+    TResult? Function(Perda perda)? featData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loading,
-    TResult Function(String id, DateTime dateTime)? featData,
+    TResult Function(Perda perda)? featData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,16 +63,16 @@ mixin _$DetailsSensorEvent {
 }
 
 /// @nodoc
-abstract class $DetailsSensorEventCopyWith<$Res> {
-  factory $DetailsSensorEventCopyWith(
-          DetailsSensorEvent value, $Res Function(DetailsSensorEvent) then) =
-      _$DetailsSensorEventCopyWithImpl<$Res, DetailsSensorEvent>;
+abstract class $PerdasEventCopyWith<$Res> {
+  factory $PerdasEventCopyWith(
+          PerdasEvent value, $Res Function(PerdasEvent) then) =
+      _$PerdasEventCopyWithImpl<$Res, PerdasEvent>;
 }
 
 /// @nodoc
-class _$DetailsSensorEventCopyWithImpl<$Res, $Val extends DetailsSensorEvent>
-    implements $DetailsSensorEventCopyWith<$Res> {
-  _$DetailsSensorEventCopyWithImpl(this._value, this._then);
+class _$PerdasEventCopyWithImpl<$Res, $Val extends PerdasEvent>
+    implements $PerdasEventCopyWith<$Res> {
+  _$PerdasEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,7 +89,7 @@ abstract class _$$_StartedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_StartedCopyWithImpl<$Res>
-    extends _$DetailsSensorEventCopyWithImpl<$Res, _$_Started>
+    extends _$PerdasEventCopyWithImpl<$Res, _$_Started>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
       : super(_value, _then);
@@ -102,7 +102,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'DetailsSensorEvent.started()';
+    return 'PerdasEvent.started()';
   }
 
   @override
@@ -119,7 +119,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() loading,
-    required TResult Function(String id, DateTime dateTime) featData,
+    required TResult Function(Perda perda) featData,
   }) {
     return started();
   }
@@ -129,7 +129,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? loading,
-    TResult? Function(String id, DateTime dateTime)? featData,
+    TResult? Function(Perda perda)? featData,
   }) {
     return started?.call();
   }
@@ -139,7 +139,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loading,
-    TResult Function(String id, DateTime dateTime)? featData,
+    TResult Function(Perda perda)? featData,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -183,7 +183,7 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements DetailsSensorEvent {
+abstract class _Started implements PerdasEvent {
   const factory _Started() = _$_Started;
 }
 
@@ -196,7 +196,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$DetailsSensorEventCopyWithImpl<$Res, _$_Loading>
+    extends _$PerdasEventCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
@@ -209,7 +209,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'DetailsSensorEvent.loading()';
+    return 'PerdasEvent.loading()';
   }
 
   @override
@@ -226,7 +226,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() loading,
-    required TResult Function(String id, DateTime dateTime) featData,
+    required TResult Function(Perda perda) featData,
   }) {
     return loading();
   }
@@ -236,7 +236,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? loading,
-    TResult? Function(String id, DateTime dateTime)? featData,
+    TResult? Function(Perda perda)? featData,
   }) {
     return loading?.call();
   }
@@ -246,7 +246,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loading,
-    TResult Function(String id, DateTime dateTime)? featData,
+    TResult Function(Perda perda)? featData,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -290,7 +290,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements DetailsSensorEvent {
+abstract class _Loading implements PerdasEvent {
   const factory _Loading() = _$_Loading;
 }
 
@@ -299,12 +299,14 @@ abstract class _$$_FeatedCopyWith<$Res> {
   factory _$$_FeatedCopyWith(_$_Feated value, $Res Function(_$_Feated) then) =
       __$$_FeatedCopyWithImpl<$Res>;
   @useResult
-  $Res call({String id, DateTime dateTime});
+  $Res call({Perda perda});
+
+  $PerdaCopyWith<$Res> get perda;
 }
 
 /// @nodoc
 class __$$_FeatedCopyWithImpl<$Res>
-    extends _$DetailsSensorEventCopyWithImpl<$Res, _$_Feated>
+    extends _$PerdasEventCopyWithImpl<$Res, _$_Feated>
     implements _$$_FeatedCopyWith<$Res> {
   __$$_FeatedCopyWithImpl(_$_Feated _value, $Res Function(_$_Feated) _then)
       : super(_value, _then);
@@ -312,35 +314,36 @@ class __$$_FeatedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? dateTime = null,
+    Object? perda = null,
   }) {
     return _then(_$_Feated(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == dateTime
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      null == perda
+          ? _value.perda
+          : perda // ignore: cast_nullable_to_non_nullable
+              as Perda,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PerdaCopyWith<$Res> get perda {
+    return $PerdaCopyWith<$Res>(_value.perda, (value) {
+      return _then(_value.copyWith(perda: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_Feated implements _Feated {
-  const _$_Feated(this.id, this.dateTime);
+  const _$_Feated(this.perda);
 
   @override
-  final String id;
-  @override
-  final DateTime dateTime;
+  final Perda perda;
 
   @override
   String toString() {
-    return 'DetailsSensorEvent.featData(id: $id, dateTime: $dateTime)';
+    return 'PerdasEvent.featData(perda: $perda)';
   }
 
   @override
@@ -348,13 +351,11 @@ class _$_Feated implements _Feated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Feated &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.dateTime, dateTime) ||
-                other.dateTime == dateTime));
+            (identical(other.perda, perda) || other.perda == perda));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, dateTime);
+  int get hashCode => Object.hash(runtimeType, perda);
 
   @JsonKey(ignore: true)
   @override
@@ -367,9 +368,9 @@ class _$_Feated implements _Feated {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() loading,
-    required TResult Function(String id, DateTime dateTime) featData,
+    required TResult Function(Perda perda) featData,
   }) {
-    return featData(id, dateTime);
+    return featData(perda);
   }
 
   @override
@@ -377,9 +378,9 @@ class _$_Feated implements _Feated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? loading,
-    TResult? Function(String id, DateTime dateTime)? featData,
+    TResult? Function(Perda perda)? featData,
   }) {
-    return featData?.call(id, dateTime);
+    return featData?.call(perda);
   }
 
   @override
@@ -387,11 +388,11 @@ class _$_Feated implements _Feated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loading,
-    TResult Function(String id, DateTime dateTime)? featData,
+    TResult Function(Perda perda)? featData,
     required TResult orElse(),
   }) {
     if (featData != null) {
-      return featData(id, dateTime);
+      return featData(perda);
     }
     return orElse();
   }
@@ -431,47 +432,39 @@ class _$_Feated implements _Feated {
   }
 }
 
-abstract class _Feated implements DetailsSensorEvent {
-  const factory _Feated(final String id, final DateTime dateTime) = _$_Feated;
+abstract class _Feated implements PerdasEvent {
+  const factory _Feated(final Perda perda) = _$_Feated;
 
-  String get id;
-  DateTime get dateTime;
+  Perda get perda;
   @JsonKey(ignore: true)
   _$$_FeatedCopyWith<_$_Feated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$DetailsSensorState {
-  DetailsSensorStatus get status => throw _privateConstructorUsedError;
-  List<SensorEntity>? get sensores => throw _privateConstructorUsedError;
-  Perda? get perda => throw _privateConstructorUsedError;
+mixin _$PerdasState {
+  PerdasStatus get status => throw _privateConstructorUsedError;
+  List<Perda>? get perdas => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailsSensorStateCopyWith<DetailsSensorState> get copyWith =>
+  $PerdasStateCopyWith<PerdasState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DetailsSensorStateCopyWith<$Res> {
-  factory $DetailsSensorStateCopyWith(
-          DetailsSensorState value, $Res Function(DetailsSensorState) then) =
-      _$DetailsSensorStateCopyWithImpl<$Res, DetailsSensorState>;
+abstract class $PerdasStateCopyWith<$Res> {
+  factory $PerdasStateCopyWith(
+          PerdasState value, $Res Function(PerdasState) then) =
+      _$PerdasStateCopyWithImpl<$Res, PerdasState>;
   @useResult
-  $Res call(
-      {DetailsSensorStatus status,
-      List<SensorEntity>? sensores,
-      Perda? perda,
-      String? errorMessage});
-
-  $PerdaCopyWith<$Res>? get perda;
+  $Res call({PerdasStatus status, List<Perda>? perdas, String? errorMessage});
 }
 
 /// @nodoc
-class _$DetailsSensorStateCopyWithImpl<$Res, $Val extends DetailsSensorState>
-    implements $DetailsSensorStateCopyWith<$Res> {
-  _$DetailsSensorStateCopyWithImpl(this._value, this._then);
+class _$PerdasStateCopyWithImpl<$Res, $Val extends PerdasState>
+    implements $PerdasStateCopyWith<$Res> {
+  _$PerdasStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -482,90 +475,61 @@ class _$DetailsSensorStateCopyWithImpl<$Res, $Val extends DetailsSensorState>
   @override
   $Res call({
     Object? status = null,
-    Object? sensores = freezed,
-    Object? perda = freezed,
+    Object? perdas = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as DetailsSensorStatus,
-      sensores: freezed == sensores
-          ? _value.sensores
-          : sensores // ignore: cast_nullable_to_non_nullable
-              as List<SensorEntity>?,
-      perda: freezed == perda
-          ? _value.perda
-          : perda // ignore: cast_nullable_to_non_nullable
-              as Perda?,
+              as PerdasStatus,
+      perdas: freezed == perdas
+          ? _value.perdas
+          : perdas // ignore: cast_nullable_to_non_nullable
+              as List<Perda>?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PerdaCopyWith<$Res>? get perda {
-    if (_value.perda == null) {
-      return null;
-    }
-
-    return $PerdaCopyWith<$Res>(_value.perda!, (value) {
-      return _then(_value.copyWith(perda: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$_DetailsSensorStateCopyWith<$Res>
-    implements $DetailsSensorStateCopyWith<$Res> {
-  factory _$$_DetailsSensorStateCopyWith(_$_DetailsSensorState value,
-          $Res Function(_$_DetailsSensorState) then) =
-      __$$_DetailsSensorStateCopyWithImpl<$Res>;
+abstract class _$$_PerdasStateCopyWith<$Res>
+    implements $PerdasStateCopyWith<$Res> {
+  factory _$$_PerdasStateCopyWith(
+          _$_PerdasState value, $Res Function(_$_PerdasState) then) =
+      __$$_PerdasStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {DetailsSensorStatus status,
-      List<SensorEntity>? sensores,
-      Perda? perda,
-      String? errorMessage});
-
-  @override
-  $PerdaCopyWith<$Res>? get perda;
+  $Res call({PerdasStatus status, List<Perda>? perdas, String? errorMessage});
 }
 
 /// @nodoc
-class __$$_DetailsSensorStateCopyWithImpl<$Res>
-    extends _$DetailsSensorStateCopyWithImpl<$Res, _$_DetailsSensorState>
-    implements _$$_DetailsSensorStateCopyWith<$Res> {
-  __$$_DetailsSensorStateCopyWithImpl(
-      _$_DetailsSensorState _value, $Res Function(_$_DetailsSensorState) _then)
+class __$$_PerdasStateCopyWithImpl<$Res>
+    extends _$PerdasStateCopyWithImpl<$Res, _$_PerdasState>
+    implements _$$_PerdasStateCopyWith<$Res> {
+  __$$_PerdasStateCopyWithImpl(
+      _$_PerdasState _value, $Res Function(_$_PerdasState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? status = null,
-    Object? sensores = freezed,
-    Object? perda = freezed,
+    Object? perdas = freezed,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$_DetailsSensorState(
+    return _then(_$_PerdasState(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as DetailsSensorStatus,
-      sensores: freezed == sensores
-          ? _value._sensores
-          : sensores // ignore: cast_nullable_to_non_nullable
-              as List<SensorEntity>?,
-      perda: freezed == perda
-          ? _value.perda
-          : perda // ignore: cast_nullable_to_non_nullable
-              as Perda?,
+              as PerdasStatus,
+      perdas: freezed == perdas
+          ? _value._perdas
+          : perdas // ignore: cast_nullable_to_non_nullable
+              as List<Perda>?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -576,78 +540,70 @@ class __$$_DetailsSensorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DetailsSensorState implements _DetailsSensorState {
-  const _$_DetailsSensorState(
-      {this.status = DetailsSensorStatus.initial,
-      final List<SensorEntity>? sensores,
-      this.perda,
+class _$_PerdasState implements _PerdasState {
+  const _$_PerdasState(
+      {this.status = PerdasStatus.initial,
+      final List<Perda>? perdas,
       this.errorMessage})
-      : _sensores = sensores;
+      : _perdas = perdas;
 
   @override
   @JsonKey()
-  final DetailsSensorStatus status;
-  final List<SensorEntity>? _sensores;
+  final PerdasStatus status;
+  final List<Perda>? _perdas;
   @override
-  List<SensorEntity>? get sensores {
-    final value = _sensores;
+  List<Perda>? get perdas {
+    final value = _perdas;
     if (value == null) return null;
-    if (_sensores is EqualUnmodifiableListView) return _sensores;
+    if (_perdas is EqualUnmodifiableListView) return _perdas;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
-  final Perda? perda;
-  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'DetailsSensorState(status: $status, sensores: $sensores, perda: $perda, errorMessage: $errorMessage)';
+    return 'PerdasState(status: $status, perdas: $perdas, errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DetailsSensorState &&
+            other is _$_PerdasState &&
             (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._sensores, _sensores) &&
-            (identical(other.perda, perda) || other.perda == perda) &&
+            const DeepCollectionEquality().equals(other._perdas, _perdas) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status,
-      const DeepCollectionEquality().hash(_sensores), perda, errorMessage);
+      const DeepCollectionEquality().hash(_perdas), errorMessage);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DetailsSensorStateCopyWith<_$_DetailsSensorState> get copyWith =>
-      __$$_DetailsSensorStateCopyWithImpl<_$_DetailsSensorState>(
-          this, _$identity);
+  _$$_PerdasStateCopyWith<_$_PerdasState> get copyWith =>
+      __$$_PerdasStateCopyWithImpl<_$_PerdasState>(this, _$identity);
 }
 
-abstract class _DetailsSensorState implements DetailsSensorState {
-  const factory _DetailsSensorState(
-      {final DetailsSensorStatus status,
-      final List<SensorEntity>? sensores,
-      final Perda? perda,
-      final String? errorMessage}) = _$_DetailsSensorState;
+abstract class _PerdasState implements PerdasState {
+  const factory _PerdasState(
+      {final PerdasStatus status,
+      final List<Perda>? perdas,
+      final String? errorMessage}) = _$_PerdasState;
 
   @override
-  DetailsSensorStatus get status;
+  PerdasStatus get status;
   @override
-  List<SensorEntity>? get sensores;
-  @override
-  Perda? get perda;
+  List<Perda>? get perdas;
   @override
   String? get errorMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_DetailsSensorStateCopyWith<_$_DetailsSensorState> get copyWith =>
+  _$$_PerdasStateCopyWith<_$_PerdasState> get copyWith =>
       throw _privateConstructorUsedError;
 }

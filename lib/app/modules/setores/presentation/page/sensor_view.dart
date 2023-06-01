@@ -22,69 +22,71 @@ class _SensorViewState extends State<SensorView> {
   @override
   Widget build(BuildContext context) {
     var listSetores = context.watch<SetorBloc>().state.setores ?? [];
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
-          child: Text(
-            'Setores',
-            style: Theme.of(context).textTheme.headlineSmall,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
+            child: Text(
+              'Setores',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
           ),
-        ),
-        SizedBox(
-          height: 150,
-          child: ListView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 8.sp),
-            itemCount: listSetores.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (_, index) {
-              return SetoresCard(
-                setores: listSetores[index],
-                select: () {
-                  setState(() {
-                    selectedIndex = index;
-                  });
-                },
-                isSelected: selectedIndex == index,
-              );
-            },
-          ),
-        ),
-        SizedBox(
-          height: 12.sp,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0.sp, vertical: 4.sp),
-          child: Text(
-            'Sensores',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        if (listSetores.isNotEmpty)
-          ListView.builder(
-              itemCount: listSetores[selectedIndex].listSensores.length,
-              shrinkWrap: true,
+          SizedBox(
+            height: 150,
+            child: ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 8.sp),
+              itemCount: listSetores.length,
+              scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
-                String value = listSetores[selectedIndex].listSensores[index];
-                return ListTile(
-                  onTap: () {
-                    if (ResponsiveWidget.isMobile(context)) {
-                      context.router.push(DetailsPageRoute(sensorId: value));
-                    } else {
-                      getIt<DetailsSensorBloc>().add(
-                        DetailsSensorEvent.featData(
-                          value,
-                          DateTime.now(),
-                        ),
-                      );
-                    }
+                return SetoresCard(
+                  setores: listSetores[index],
+                  select: () {
+                    setState(() {
+                      selectedIndex = index;
+                    });
                   },
-                  title: Text(value),
-                  trailing: const Icon(Icons.arrow_forward_ios),
+                  isSelected: selectedIndex == index,
                 );
-              })
-      ],
+              },
+            ),
+          ),
+          SizedBox(
+            height: 12.sp,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0.sp, vertical: 4.sp),
+            child: Text(
+              'Sensores',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
+          if (listSetores.isNotEmpty)
+            ListView.builder(
+                itemCount: listSetores[selectedIndex].listSensores.length,
+                shrinkWrap: true,
+                itemBuilder: (_, index) {
+                  String value = listSetores[selectedIndex].listSensores[index];
+                  return ListTile(
+                    onTap: () {
+                      if (ResponsiveWidget.isMobile(context)) {
+                        context.router.push(DetailsPageRoute(sensorId: value));
+                      } else {
+                        getIt<DetailsSensorBloc>().add(
+                          DetailsSensorEvent.featData(
+                            value,
+                            DateTime.now(),
+                          ),
+                        );
+                      }
+                    },
+                    title: Text(value),
+                    trailing: const Icon(Icons.arrow_forward_ios),
+                  );
+                })
+        ],
+      ),
     );
   }
 }
