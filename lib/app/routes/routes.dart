@@ -12,7 +12,7 @@ class AppRouter extends $AppRouter {
           initial: true,
           page: HomeViewRoute.page,
           path: DASHBOARD,
-          guards: [AuthGuard()],
+          //guards: [AuthGuard()],
           children: [
             RedirectRoute(path: '', redirectTo: SETORES),
             AutoRoute(

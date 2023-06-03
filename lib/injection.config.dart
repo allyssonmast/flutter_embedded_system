@@ -91,10 +91,10 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i23.LoginBloc(loginUsecase: gh<_i17.AuthUseCase>()));
     gh.lazySingleton<_i24.PerdasBloc>(
         () => _i24.PerdasBloc(gh<_i14.SetLoserUseCase>()));
-    gh.lazySingleton<_i25.SetorBloc>(() => _i25.SetorBloc(
-          gh<_i22.IGetSetoresUsecase>(),
-          gh<_i20.GetSensorUsecase>(),
-        ));
+    gh.singleton<_i25.SetorBloc>(_i25.SetorBloc(
+      gh<_i22.IGetSetoresUsecase>(),
+      gh<_i20.GetSensorUsecase>(),
+    ));
     gh.lazySingleton<_i26.DetailsSensorBloc>(() => _i26.DetailsSensorBloc(
           gh<_i21.IGetSensor>(),
           gh<_i19.GetPerdasCountUseCase>(),

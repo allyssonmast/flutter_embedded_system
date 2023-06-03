@@ -1,5 +1,4 @@
 import 'package:auto_route/annotations.dart';
-import 'package:embedded_system/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,21 +14,18 @@ class SetoresPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: BlocProvider<SetorBloc>(
-          create: (_) => getIt<SetorBloc>(),
-          child: BlocBuilder<SetorBloc, SetorState>(
-            builder: (context, state) {
-              if (state.status.isInitial) {
-                context.read<SetorBloc>().add(const SetorEvent.started());
-                return const MyCircularIndicator();
-              } else if (state.status.isLoading) {
-                return const MyCircularIndicator();
-              } else if (state.status.isError) {
-                return const FailureWidget();
-              }
-              return const SensorView();
-            },
-          ),
+        body: BlocBuilder<SetorBloc, SetorState>(
+          builder: (context, state) {
+            if (state.status.isInitial) {
+              context.read<SetorBloc>().add(const SetorEvent.started());
+              return const MyCircularIndicator();
+            } else if (state.status.isLoading) {
+              return const MyCircularIndicator();
+            } else if (state.status.isError) {
+              return const FailureWidget();
+            }
+            return const SensorView();
+          },
         ));
   }
 }

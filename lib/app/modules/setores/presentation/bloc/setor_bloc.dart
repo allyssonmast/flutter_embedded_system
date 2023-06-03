@@ -11,7 +11,7 @@ part 'setor_event.dart';
 part 'setor_state.dart';
 part 'setor_bloc.freezed.dart';
 
-@lazySingleton
+@singleton
 class SetorBloc extends Bloc<SetorEvent, SetorState> {
   final IGetSetoresUsecase _getSetoresUsecase;
   final GetSensorUsecase _getSensorUsecase;
