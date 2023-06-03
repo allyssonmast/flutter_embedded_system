@@ -14,7 +14,8 @@ class Setor {
   factory Setor.fromJson(Map<String, dynamic> json) => Setor(
         icon: IconData(
           json['iconData'],
-          fontFamily: 'MaterialIcons',
+          fontFamily: 'FontAwesomeSolid',
+          fontPackage: 'font_awesome_flutter',
         ),
         name: json['name'],
         listSensores: List.from(json['listSensores']),

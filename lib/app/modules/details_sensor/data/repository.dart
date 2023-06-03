@@ -54,7 +54,7 @@ class SensorRepository implements ISensorRepository {
               : null);
       return Right(result);
     } on FirebaseException catch (_, e) {
-      return Left(Failure.serverError());
+      return Left(Failure(message: e.toString()));
     } catch (e) {
       return Left(Failure.serverError());
     }

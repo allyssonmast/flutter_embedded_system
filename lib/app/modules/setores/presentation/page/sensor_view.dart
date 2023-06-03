@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:embedded_system/app/helpers/shered_widgets/responsive.dart';
+import 'package:embedded_system/app/modules/details_sensor/domain/entity/sensor.dart';
 import 'package:embedded_system/app/modules/details_sensor/presentation/bloc/details_sensor_bloc.dart';
 import 'package:embedded_system/injection.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +22,23 @@ class SensorView extends StatefulWidget {
 
 class _SensorViewState extends State<SensorView> {
   int selectedIndex = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer.periodic(const Duration(seconds: 5), (timer) {
+      if (getIt<SetorBloc>().state.idSetor != null) {
+        getIt<SetorBloc>()
+            .add(SetorEvent.getSensores(getIt<SetorBloc>().state.idSetor!));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var listSetores = context.watch<SetorBloc>().state.setores ?? [];
+    var listSensores = context.watch<SetorBloc>().state.listSensores;
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,6 +63,9 @@ class _SensorViewState extends State<SensorView> {
                     setState(() {
                       selectedIndex = index;
                     });
+                    context
+                        .read<SetorBloc>()
+                        .add(SetorEvent.getSensores(listSetores[index].name));
                   },
                   isSelected: selectedIndex == index,
                 );
@@ -62,26 +82,37 @@ class _SensorViewState extends State<SensorView> {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          if (listSetores.isNotEmpty)
+          if (listSensores.isNotEmpty)
             ListView.builder(
-                itemCount: listSetores[selectedIndex].listSensores.length,
+                itemCount: listSensores.length,
                 shrinkWrap: true,
                 itemBuilder: (_, index) {
-                  String value = listSetores[selectedIndex].listSensores[index];
+                  SensorEntity sensor = listSensores[index];
                   return ListTile(
                     onTap: () {
                       if (ResponsiveWidget.isMobile(context)) {
-                        context.router.push(DetailsPageRoute(sensorId: value));
+                        context.router.push(
+                            DetailsPageRoute(sensorId: sensor.dispositivo));
                       } else {
                         getIt<DetailsSensorBloc>().add(
                           DetailsSensorEvent.featData(
-                            value,
+                            sensor.dispositivo,
                             DateTime.now(),
                           ),
                         );
                       }
                     },
-                    title: Text(value),
+                    subtitle: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(sensor.temperatura.toString()),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(sensor.humidade.toString())
+                      ],
+                    ),
+                    title: Text(sensor.dispositivo),
                     trailing: const Icon(Icons.arrow_forward_ios),
                   );
                 })

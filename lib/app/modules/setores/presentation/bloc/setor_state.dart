@@ -18,6 +18,9 @@ class SetorState with _$SetorState {
   const factory SetorState({
     @Default(SetorStatus.initial) SetorStatus status,
     List<Setor>? setores,
+    @Default([])
+    List<SensorEntity> listSensores,
     String? errorMessage,
+    String? idSetor,
   }) = _SetorState;
 }

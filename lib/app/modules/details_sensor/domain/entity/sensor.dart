@@ -1,6 +1,6 @@
-
 class SensorEntity {
   String? name;
+  String dispositivo;
   DateTime timestamp;
   double temperatura;
   double humidade;
@@ -8,6 +8,7 @@ class SensorEntity {
   factory SensorEntity.fromJson(Map<String, dynamic> json) => SensorEntity(
         timestamp: DateTime.parse(json['timestemp']),
         name: '',
+        dispositivo: json['Dispositivo'],
         temperatura: json['temperatura'] is int
             ? (json['temperatura'] as int).toDouble()
             : json['temperatura'],
@@ -18,6 +19,7 @@ class SensorEntity {
 
   SensorEntity(
       {this.name,
+      required this.dispositivo,
       required this.timestamp,
       required this.temperatura,
       required this.humidade});

@@ -17,6 +17,8 @@ dependencies:
   firebase_crashlytics:
   firebase_ui_firestore:
 
+  http:
+
   auto_route:
   bloc:
   flutter_bloc:

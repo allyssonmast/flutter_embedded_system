@@ -5,6 +5,13 @@
 	<key>com.apple.security.app-sandbox</key>
 	<true/>
 	<key>com.apple.security.network.client</key>
-    <true/>
+	<true/>
+	<key>com.apple.security.network.server</key>
+	<true/>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.example.embeddedSystem</string>
+		<string>$(AppIdentifierPrefix)com.google.GIDSignIn</string>
+	</array>
 </dict>
 </plist>
