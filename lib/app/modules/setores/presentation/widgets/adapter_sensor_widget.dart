@@ -1,82 +1,93 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:embedded_system/app/modules/details_sensor/domain/entity/sensor.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 
 class AdapterSensorWidget extends StatelessWidget {
   final SensorEntity sensorEntity;
-  const AdapterSensorWidget({Key? key, required this.sensorEntity})
+  final String idSetor;
+  const AdapterSensorWidget({Key? key, required this.sensorEntity, required this.idSetor})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Card(
-        color: sensorEntity.temperatura > 31.0 ? Colors.red.shade700 : null,
-        margin: const EdgeInsets.all(8),
+    return Card(
+      color: sensorEntity.temperatura > 32.0 ? Colors.red.shade700 : null,
+      child: InkWell(
+        onTap: (){
+          context.router.pushNamed('/detalhaes-sensor/$idSetor/${sensorEntity.dispositivo}');
+        },
         child: Container(
           padding: const EdgeInsets.all(16),
-          height: 200,
           child: Stack(
             children: [
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const FaIcon(
-                          FontAwesomeIcons.temperatureHalf,
-                          size: 30,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            'Ultima Temperatura',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const FaIcon(
+                            FontAwesomeIcons.temperatureHalf,
+                            size: 30,
                           ),
-                        ),
-                        Text(
-                          '${sensorEntity.temperatura}°',
-                          style: const TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w900),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 8.0),
-                          child: Text('Ideal entre: 27° a 35°'),
-                        )
-                      ],
-                    ),
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              'Ultima Temperatura',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Text(
+                            '${sensorEntity.temperatura}°',
+                            style: const TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.w900),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text('Ideal: 27° - 35°'),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const FaIcon(
+                            Icons.water_drop,
+                            size: 30,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              'Ultima umidade',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Text(
+                            '${sensorEntity.humidade}%',
+                            style: const TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.w900),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text('Ideal: 50% - 80%'),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const FaIcon(
-                          Icons.water_drop,
-                          size: 30,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            'Ultima umidade',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        Text(
-                          '${sensorEntity.humidade}%',
-                          style: const TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w900),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 8.0),
-                          child: Text('Ideal entre: 27 a 35'),
-                        )
-                      ],
-                    ),
+                  Text(
+                    'Última medida as ${DateFormat('HH:mm   dd/MM/yyyy').format(sensorEntity.timestamp)}',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        color: Theme.of(context).primaryColor),
                   ),
                 ],
               ),

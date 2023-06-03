@@ -22,14 +22,14 @@ class SetoresCard extends StatelessWidget {
       child: InkWell(
         onTap: select,
         child: SizedBox(
-          height: 150.sp,
-          width: 150.sp,
+          height: 80.sp,
+          width: 110.sp,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FaIcon(
                 setores.icon,
-                size: 30.sp,
+                size: 25.sp,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),

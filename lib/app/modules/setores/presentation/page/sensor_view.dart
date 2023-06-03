@@ -18,7 +18,6 @@ class SensorView extends StatefulWidget {
 }
 
 class _SensorViewState extends State<SensorView> {
-
   @override
   void initState() {
     super.initState();
@@ -47,7 +46,7 @@ class _SensorViewState extends State<SensorView> {
             ),
           ),
           SizedBox(
-            height: 150,
+            height: 100.sp,
             child: ListView.builder(
               padding: EdgeInsets.symmetric(horizontal: 8.sp),
               itemCount: listSetores.length,
@@ -76,13 +75,23 @@ class _SensorViewState extends State<SensorView> {
             ),
           ),
           if (listSensores.isNotEmpty)
-            ListView.builder(
-                itemCount: listSensores.length,
-                shrinkWrap: true,
-                itemBuilder: (_, index) {
-                  SensorEntity sensor = listSensores[index];
-                  return AdapterSensorWidget(sensorEntity: sensor);
-                })
+            GridView.builder(
+              itemCount: listSensores.length,
+              shrinkWrap: true,
+              itemBuilder: (_, index) {
+                SensorEntity sensor = listSensores[index];
+                return AdapterSensorWidget(
+                  sensorEntity: sensor,
+                  idSetor: setoresId!.toLowerCase(),
+                );
+              },
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  childAspectRatio: 1.2,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2,
+                  maxCrossAxisExtent: 480,
+                  mainAxisExtent: 215),
+            )
           else
             const Padding(
               padding: EdgeInsets.only(top: 28.0),

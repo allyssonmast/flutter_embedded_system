@@ -13,9 +13,11 @@ import '../widgets/grafico_tempe.dart';
 
 class DetailsSensorView extends StatefulWidget {
   final String sensorId;
+  final String setorId;
   const DetailsSensorView({
     Key? key,
     required this.sensorId,
+    required this.setorId,
   }) : super(key: key);
 
   @override
@@ -30,7 +32,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
         context.watch<DetailsSensorBloc>().state.sensores ?? [];
     Perda? perda = context.watch<DetailsSensorBloc>().state.perda;
     var sensorLast = _searchDerivadas(listSensores);
-
+    print("${widget.setorId}/${widget.sensorId}");
     return Scaffold(
       appBar: AppBar(
         title: Column(
@@ -41,7 +43,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
               style: TextStyle(fontSize: 22),
             ),
             Text(
-              widget.sensorId,
+              widget.setorId,
               style: const TextStyle(fontSize: 14),
             ),
           ],
@@ -56,7 +58,8 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
                   dateTime = DateTime.now();
 
                   context.read<DetailsSensorBloc>().add(
-                      DetailsSensorEvent.featData(widget.sensorId, dateTime));
+                      DetailsSensorEvent.featData(
+                          "${widget.setorId}/${widget.sensorId}", dateTime));
                 },
                 icon: const Icon(Icons.update_outlined),
               ),
@@ -158,16 +161,19 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
             Card(
               margin: EdgeInsets.all(8.0.sp),
               child: ListTile(
-                subtitle: Text(perda!=null?perda.isEgg ? 'Ovos' : 'Galinhas':'Sem perdas'),
+                subtitle: Text(perda != null
+                    ? perda.isEgg
+                        ? 'Ovos'
+                        : 'Galinhas'
+                    : 'Sem perdas'),
                 title: const Text(
                   'Perdas',
                   style: TextStyle(
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-
                 trailing: CircleAvatar(
-                  child: Text(perda!=null?perda.count.toString():'0'),
+                  child: Text(perda != null ? perda.count.toString() : '0'),
                 ),
               ),
             )

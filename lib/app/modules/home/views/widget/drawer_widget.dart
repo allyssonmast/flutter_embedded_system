@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -17,12 +18,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     var mapDrawer = {
       'icons': [
         Icons.sensors,
-        Icons.remove_circle_outline,
-        Icons.inventory_2_outlined,
-        Icons.group_outlined,
-        Icons.groups,
+        Icons.bar_chart,
+        Icons.timeline,
       ],
-      'name': ['Sensores', 'Perdas', 'Lotes', 'Clientes', 'Funcionarios'],
+      'name': ['Sensores','Histórico do sensores', 'Rastreamento',],
     };
 
     return Drawer(

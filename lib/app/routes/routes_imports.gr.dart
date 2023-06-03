@@ -34,13 +34,16 @@ abstract class $AppRouter extends _i6.RootStackRouter {
     DetailsPageRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<DetailsPageRouteArgs>(
-          orElse: () =>
-              DetailsPageRouteArgs(sensorId: pathParams.getString('id')));
+          orElse: () => DetailsPageRouteArgs(
+                sensorId: pathParams.getString('idSensor'),
+                setorID: pathParams.getString('id'),
+              ));
       return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i2.DetailsPage(
           key: args.key,
           sensorId: args.sensorId,
+          setorID: args.setorID,
         ),
       );
     },
@@ -85,14 +88,19 @@ class DetailsPageRoute extends _i6.PageRouteInfo<DetailsPageRouteArgs> {
   DetailsPageRoute({
     _i7.Key? key,
     required String sensorId,
+    required String setorID,
     List<_i6.PageRouteInfo>? children,
   }) : super(
           DetailsPageRoute.name,
           args: DetailsPageRouteArgs(
             key: key,
             sensorId: sensorId,
+            setorID: setorID,
           ),
-          rawPathParams: {'id': sensorId},
+          rawPathParams: {
+            'idSensor': sensorId,
+            'id': setorID,
+          },
           initialChildren: children,
         );
 
@@ -106,15 +114,18 @@ class DetailsPageRouteArgs {
   const DetailsPageRouteArgs({
     this.key,
     required this.sensorId,
+    required this.setorID,
   });
 
   final _i7.Key? key;
 
   final String sensorId;
 
+  final String setorID;
+
   @override
   String toString() {
-    return 'DetailsPageRouteArgs{key: $key, sensorId: $sensorId}';
+    return 'DetailsPageRouteArgs{key: $key, sensorId: $sensorId, setorID: $setorID}';
   }
 }
 
