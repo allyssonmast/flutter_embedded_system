@@ -1,5 +1,5 @@
 import 'package:embedded_system/app/modules/details_sensor/domain/entity/sensor.dart';
-import 'package:embedded_system/app/modules/perdas/domain/entity/perda.dart';
+import 'package:embedded_system/app/modules/historico_sensores/domain/entity/perda.dart';
 import 'package:embedded_system/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

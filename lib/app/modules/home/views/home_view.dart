@@ -25,6 +25,7 @@ class HomeView extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           routes: const [
             SetoresPageRoute(),
+            HistoricoPageRoute(),
             PerdasPageRoute(),
           ],
           builder: (context, child, _) {

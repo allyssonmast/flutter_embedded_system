@@ -25,15 +25,19 @@ import 'app/modules/details_sensor/domain/usecases/getSensor_usecase.dart'
     as _i21;
 import 'app/modules/details_sensor/presentation/bloc/details_sensor_bloc.dart'
     as _i26;
+import 'app/modules/historico_sensores/data/repository.dart' as _i13;
+import 'app/modules/historico_sensores/domain/repository/repository.dart'
+    as _i12;
+import 'app/modules/historico_sensores/domain/usecase/getAlllosers.dart'
+    as _i18;
+import 'app/modules/historico_sensores/domain/usecase/set_loser_usecase.dart'
+    as _i14;
+import 'app/modules/historico_sensores/presentation/bloc/perdas_bloc.dart'
+    as _i24;
 import 'app/modules/login/data/repositories/auth_repository_impl.dart' as _i16;
 import 'app/modules/login/domain/repositories/auth_repository.dart' as _i15;
 import 'app/modules/login/domain/usecases/auth_use_case.dart' as _i17;
 import 'app/modules/login/presentation/bloc/login_bloc.dart' as _i23;
-import 'app/modules/perdas/data/repository.dart' as _i13;
-import 'app/modules/perdas/domain/repository/repository.dart' as _i12;
-import 'app/modules/perdas/domain/usecase/getAlllosers.dart' as _i18;
-import 'app/modules/perdas/domain/usecase/set_loser_usecase.dart' as _i14;
-import 'app/modules/perdas/presentation/bloc/perdas_bloc.dart' as _i24;
 import 'app/modules/setores/data/repository.dart' as _i11;
 import 'app/modules/setores/domain/repository/setor_repository.dart' as _i10;
 import 'app/modules/setores/domain/usecase/getSensor.dart' as _i20;

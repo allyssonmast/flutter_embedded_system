@@ -9,7 +9,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
 
-import '../../perdas/domain/entity/perda.dart';
+import '../../historico_sensores/domain/entity/perda.dart';
 
 @Injectable(as: ISensorRepository)
 class SensorRepository implements ISensorRepository {

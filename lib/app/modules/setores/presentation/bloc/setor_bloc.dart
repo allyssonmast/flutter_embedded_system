@@ -30,21 +30,26 @@ class SetorBloc extends Bloc<SetorEvent, SetorState> {
             ),
           ),
         );
+     //   emit(state.copyWith(idSetor: state.setores!.first.name));
         var result1 = await _getSensorUsecase(state.setores!.first.name);
         result1.fold(
           (faiulure) => emit(state.copyWith(
-              status: SetorStatus.error, errorMessage: faiulure.message)),
-          (sensores) => emit(state.copyWith(
-              idSetor: state.setores!.first.name,
-              status: SetorStatus.loaded,
-              listSensores: sensores)),
+              status: SetorStatus.errorBack, errorMessage: faiulure.message)),
+          (sensores) => emit(
+            state.copyWith(
+                idSetor: state.setores!.first.name,
+                status: SetorStatus.loaded,
+                listSensores: sensores),
+          ),
         );
       }
       if (event is _getSensores) {
         var result = await _getSensorUsecase(event.id);
+        emit(state.copyWith(idSetor: event.id));
+
         result.fold(
           (faiulure) => emit(state.copyWith(
-              status: SetorStatus.error, errorMessage: faiulure.message)),
+              status: SetorStatus.errorBack, errorMessage: faiulure.message)),
           (sensores) => emit(state.copyWith(
               idSetor: event.id,
               status: SetorStatus.loaded,

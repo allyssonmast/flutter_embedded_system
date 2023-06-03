@@ -5,6 +5,7 @@ enum SetorStatus {
   loading,
   loaded,
   error,
+  errorBack,
 }
 
 extension SetorStatusX on SetorStatus {
@@ -12,6 +13,7 @@ extension SetorStatusX on SetorStatus {
   bool get isLoading => this == SetorStatus.loading;
   bool get isLoaded => this == SetorStatus.loaded;
   bool get isError => this == SetorStatus.error;
+  bool get isErrorBack => this == SetorStatus.errorBack;
 }
 @freezed
 class SetorState with _$SetorState {

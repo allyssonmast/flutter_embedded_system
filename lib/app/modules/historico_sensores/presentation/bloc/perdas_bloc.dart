@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:embedded_system/app/modules/perdas/domain/entity/perda.dart';
+import 'package:embedded_system/app/modules/historico_sensores/domain/entity/perda.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

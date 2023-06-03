@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:embedded_system/app/modules/perdas/domain/entity/perda.dart';
-import 'package:embedded_system/app/modules/perdas/domain/usecase/getAlllosers.dart';
-import 'package:embedded_system/app/modules/perdas/presentation/bloc/perdas_bloc.dart';
+import 'package:embedded_system/app/modules/historico_sensores/domain/entity/perda.dart';
+import 'package:embedded_system/app/modules/historico_sensores/domain/usecase/getAlllosers.dart';
+import 'package:embedded_system/app/modules/historico_sensores/presentation/bloc/perdas_bloc.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

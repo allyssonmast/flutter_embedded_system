@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -21,7 +20,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         Icons.bar_chart,
         Icons.timeline,
       ],
-      'name': ['Sensores','Histórico do sensores', 'Rastreamento',],
+      'name': [
+        'Sensores',
+        'Histórico dos sensores',
+        'Rastreamento',
+      ],
     };
 
     return Drawer(
@@ -46,7 +49,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   selected: index == selectedIndex,
                   onTap: () {
                     context.router.pop();
-                    if(index<2){
+                    if (index < 2) {
                       tabsRouter.setActiveIndex(index);
                     }
                     selectedIndex = index;

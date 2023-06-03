@@ -23,7 +23,7 @@ class SetoresCard extends StatelessWidget {
         onTap: select,
         child: SizedBox(
           height: 80.sp,
-          width: 110.sp,
+          width: 120.sp,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:embedded_system/app/helpers/error/login/failure.dart';
-import 'package:embedded_system/app/modules/perdas/domain/entity/perda.dart';
-import 'package:embedded_system/app/modules/perdas/domain/repository/repository.dart';
+import 'package:embedded_system/app/modules/historico_sensores/domain/entity/perda.dart';
+import 'package:embedded_system/app/modules/historico_sensores/domain/repository/repository.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class SetLoserUseCase {
