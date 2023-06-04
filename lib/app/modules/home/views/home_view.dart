@@ -26,7 +26,7 @@ class HomeView extends StatelessWidget {
           routes: const [
             SetoresPageRoute(),
             HistoricoPageRoute(),
-            PerdasPageRoute(),
+            TrackingPageRoute(),
           ],
           builder: (context, child, _) {
             return Scaffold(

@@ -20,8 +20,11 @@ class AppRouter extends $AppRouter {
               path: SETORES,
             ),
             AutoRoute(page: HistoricoPageRoute.page, path: HISTORICO),
+            AutoRoute(page: TrackingPageRoute.page, path: TRACKING, children: [
+              AutoRoute(
+                  page: TrackingDetailsPageRoute.page, path: DETAILS_TRACKING),
+            ]),
             AutoRoute(page: PerdasPageRoute.page, path: PERDAS),
-
           ],
         )
       ];

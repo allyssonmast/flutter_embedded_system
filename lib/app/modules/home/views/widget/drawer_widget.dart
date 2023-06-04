@@ -49,9 +49,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   selected: index == selectedIndex,
                   onTap: () {
                     context.router.pop();
-                    if (index < 2) {
-                      tabsRouter.setActiveIndex(index);
-                    }
+
+                    tabsRouter.setActiveIndex(index);
+
                     selectedIndex = index;
                     setState(() {});
                   },
