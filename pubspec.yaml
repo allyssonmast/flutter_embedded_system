@@ -38,9 +38,10 @@ dependencies:
   google_fonts:
   flutter_screenutil:
   font_awesome_flutter: ^10.4.0
-  syncfusion_flutter_charts:
+  syncfusion_flutter_charts: ^20.3.47
   intl:
   rounded_loading_button:
+  flutter_speed_dial:
 
   flutter: 
     sdk: flutter

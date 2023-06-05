@@ -8,41 +8,38 @@ List<Tracking> trackingList = [
     stages: [
       ProcessingStage(
         name: 'Recolhimento',
-        startDate: DateTime(2023, 5, 1),
+        startDate: DateTime(2023, 5, 1,8,40),
         endDate: DateTime(2023, 5, 2),
         description: 'Recolhimento dos ovos na granja.',
       ),
       ProcessingStage(
         name: 'Lavagem',
-        startDate: DateTime(2023, 5, 2),
+        startDate: DateTime(2023, 5, 2,10,32),
         endDate: DateTime(2023, 5, 3),
         description: 'Lavagem e higienização dos ovos antes da classificação.',
       ),
       ProcessingStage(
         name: 'Classificação',
-        startDate: DateTime(2023, 5, 3),
+        startDate: DateTime(2023, 5, 3,11,10),
         endDate: DateTime(2023, 5, 4),
         description: 'Classificação dos ovos por tamanho e qualidade.',
       ),
       ProcessingStage(
         name: 'Embalagem',
-        startDate: DateTime(2023, 5, 4),
+        startDate: DateTime(2023, 5, 4,12,58),
       ),
       ProcessingStage(
         name: 'Carregamento',
-        startDate: DateTime(2023, 5, 4),
+        startDate: DateTime(2023, 5, 4,14),
       ),
       ProcessingStage(
         name: 'Transporte',
-        startDate: DateTime(2023, 5, 4),
-      ),
-      ProcessingStage(
-        name: 'Descarregamento',
-        startDate: DateTime(2023, 5, 5),
+        startDate: DateTime(2023, 5, 4,15,40),
       ),
       ProcessingStage(
         name: 'Verificação',
-        startDate: DateTime(2023, 5, 5),
+        startDate: DateTime(2023, 5, 5,18,20),
+        description: 'Entrega confirmada pelo funcionário'
       ),
     ],
     customer: 'Supermercado ABC',
@@ -59,19 +56,19 @@ List<Tracking> trackingList = [
     stages: [
       ProcessingStage(
         name: 'Recolhimento',
-        startDate: DateTime(2023, 5, 2),
+        startDate: DateTime(2023, 5, 2,8,30),
         endDate: DateTime(2023, 5, 3),
         description: 'Recolhimento dos ovos na granja.',
       ),
       ProcessingStage(
         name: 'Lavagem',
-        startDate: DateTime(2023, 5, 3),
+        startDate: DateTime(2023, 5, 3,9,43),
         endDate: DateTime(2023, 5, 4),
         description: 'Lavagem e higienização dos ovos antes da classificação.',
       ),
       ProcessingStage(
         name: 'Classificação',
-        startDate: DateTime(2023, 5, 4),
+        startDate: DateTime(2023, 5, 4,10,37),
         endDate: DateTime(2023, 5, 5),
         description: 'Classificação dos ovos por tamanho e qualidade.',
       ),
@@ -90,19 +87,19 @@ List<Tracking> trackingList = [
     stages: [
       ProcessingStage(
         name: 'Recolhimento',
-        startDate: DateTime(2023, 5, 3),
+        startDate: DateTime(2023, 5, 3,8,12),
         endDate: DateTime(2023, 5, 4),
         description: 'Recolhimento dos ovos na granja.',
       ),
       ProcessingStage(
         name: 'Lavagem',
-        startDate: DateTime(2023, 5, 4),
+        startDate: DateTime(2023, 5, 4,9,49),
         endDate: DateTime(2023, 5, 5),
         description: 'Lavagem e higienização dos ovos antes da classificação.',
       ),
       ProcessingStage(
         name: 'Classificação',
-        startDate: DateTime(2023, 5, 5),
+        startDate: DateTime(2023, 5, 5,11,01),
         endDate: DateTime(2023, 5, 6),
         description: 'Classificação dos ovos por tamanho e qualidade.',
       ),

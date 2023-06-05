@@ -27,6 +27,7 @@ class _DetailsPageState extends State<DetailsPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: BlocProvider<DetailsSensorBloc>(
         create: (_) => getIt<DetailsSensorBloc>(),

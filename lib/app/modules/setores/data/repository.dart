@@ -33,7 +33,7 @@ class SensorRepository implements ISetorRepository {
 
   @override
   Future<Either<Failure, List<SensorEntity>>> getSensor(String id) async {
-
+    try {
       var response = await client.get(Uri.parse(apiUrl + id.toLowerCase()));
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonList = jsonDecode(response.body);
@@ -44,6 +44,8 @@ class SensorRepository implements ISetorRepository {
       } else {
         return Left(Failure(message: response.statusCode.toString()));
       }
-
+    } catch (e) {
+      return Left(Failure.serverError());
+    }
   }
 }

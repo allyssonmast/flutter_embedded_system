@@ -8,7 +8,7 @@ class SensorEntity {
   factory SensorEntity.fromJson(Map<String, dynamic> json) => SensorEntity(
         timestamp: DateTime.parse(json['timestemp']),
         name: '',
-        dispositivo: json['Dispositivo'],
+        dispositivo: json['Dispositivo']??'',
         temperatura: json['temperatura'] is int
             ? (json['temperatura'] as int).toDouble()
             : json['temperatura'],

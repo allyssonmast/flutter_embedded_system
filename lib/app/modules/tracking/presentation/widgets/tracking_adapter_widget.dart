@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:embedded_system/app/modules/tracking/domain/entity/tracking.dart';
-import 'package:embedded_system/app/routes/names_routes.dart';
 import 'package:flutter/material.dart';
 
 class TrackingAdapterWidget extends StatelessWidget {
@@ -29,7 +28,7 @@ class TrackingAdapterWidget extends StatelessWidget {
       subtitle: Text('Cliente: ${tracking.customer}'),
       trailing: Text('Quantidade: ${tracking.quantity.toString()}'),
       onTap: () {
-        context.router.pushNamed('details-tracking/${tracking.id}');
+        context.router.pushNamed('/details-tracking/${tracking.id}');
       },
     );
   }

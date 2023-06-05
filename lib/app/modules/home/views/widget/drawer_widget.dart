@@ -19,6 +19,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         Icons.sensors,
         Icons.bar_chart,
         Icons.timeline,
+
       ],
       'name': [
         'Sensores',

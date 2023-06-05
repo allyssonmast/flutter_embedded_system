@@ -17,32 +17,22 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:http/http.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'app/config/firebase_modules_injectable.dart' as _i27;
+import 'app/config/firebase_modules_injectable.dart' as _i21;
 import 'app/modules/details_sensor/data/repository.dart' as _i9;
 import 'app/modules/details_sensor/domain/repository/repository.dart' as _i8;
-import 'app/modules/details_sensor/domain/usecases/getPerdasCount.dart' as _i19;
 import 'app/modules/details_sensor/domain/usecases/getSensor_usecase.dart'
-    as _i21;
+    as _i16;
 import 'app/modules/details_sensor/presentation/bloc/details_sensor_bloc.dart'
-    as _i26;
-import 'app/modules/historico_sensores/data/repository.dart' as _i13;
-import 'app/modules/historico_sensores/domain/repository/repository.dart'
-    as _i12;
-import 'app/modules/historico_sensores/domain/usecase/getAlllosers.dart'
-    as _i18;
-import 'app/modules/historico_sensores/domain/usecase/set_loser_usecase.dart'
-    as _i14;
-import 'app/modules/historico_sensores/presentation/bloc/perdas_bloc.dart'
-    as _i24;
-import 'app/modules/login/data/repositories/auth_repository_impl.dart' as _i16;
-import 'app/modules/login/domain/repositories/auth_repository.dart' as _i15;
-import 'app/modules/login/domain/usecases/auth_use_case.dart' as _i17;
-import 'app/modules/login/presentation/bloc/login_bloc.dart' as _i23;
+    as _i20;
+import 'app/modules/login/data/repositories/auth_repository_impl.dart' as _i13;
+import 'app/modules/login/domain/repositories/auth_repository.dart' as _i12;
+import 'app/modules/login/domain/usecases/auth_use_case.dart' as _i14;
+import 'app/modules/login/presentation/bloc/login_bloc.dart' as _i18;
 import 'app/modules/setores/data/repository.dart' as _i11;
 import 'app/modules/setores/domain/repository/setor_repository.dart' as _i10;
-import 'app/modules/setores/domain/usecase/getSensor.dart' as _i20;
-import 'app/modules/setores/domain/usecase/getSetores.dart' as _i22;
-import 'app/modules/setores/presentation/bloc/setor_bloc.dart' as _i25;
+import 'app/modules/setores/domain/usecase/getSensor.dart' as _i15;
+import 'app/modules/setores/domain/usecase/getSetores.dart' as _i17;
+import 'app/modules/setores/presentation/bloc/setor_bloc.dart' as _i19;
 
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -65,46 +55,32 @@ extension GetItInjectableX on _i1.GetIt {
         () => firebaseInjectableModule.store);
     gh.lazySingleton<_i7.FirebaseStorage>(
         () => firebaseInjectableModule.storage);
-    gh.factory<_i8.ISensorRepository>(() => _i9.SensorRepository(
-          gh<_i5.FirebaseDatabase>(),
-          gh<_i6.FirebaseFirestore>(),
-        ));
+    gh.factory<_i8.ISensorRepository>(
+        () => _i9.SensorRepository(gh<_i5.FirebaseDatabase>()));
     gh.factory<_i10.ISetorRepository>(() => _i11.SensorRepository(
           gh<_i6.FirebaseFirestore>(),
           gh<_i3.Client>(),
         ));
-    gh.factory<_i12.PerdasRepository>(
-        () => _i13.PerdaRepositoryImp(gh<_i6.FirebaseFirestore>()));
-    gh.factory<_i14.SetLoserUseCase>(
-        () => _i14.SetLoserUseCaseImp(gh<_i12.PerdasRepository>()));
-    gh.factory<_i15.AuthRepository>(
-        () => _i16.AuthRepositoryImpl(gh<_i4.FirebaseAuth>()));
-    gh.factory<_i17.AuthUseCase>(
-        () => _i17.AuthUseCaseImpl(gh<_i15.AuthRepository>()));
-    gh.factory<_i18.GetAllLosers>(
-        () => _i18.GetAllLosersImp(gh<_i12.PerdasRepository>()));
-    gh.factory<_i19.GetPerdasCountUseCase>(
-        () => _i19.GetPerdasCountUseCaseImp(gh<_i8.ISensorRepository>()));
-    gh.factory<_i20.GetSensorUsecase>(
-        () => _i20.GetSensorUsecaseImp(gh<_i10.ISetorRepository>()));
-    gh.factory<_i21.IGetSensor>(
-        () => _i21.GetSensor(gh<_i8.ISensorRepository>()));
-    gh.factory<_i22.IGetSetoresUsecase>(
-        () => _i22.GetSetoresUsecase(gh<_i10.ISetorRepository>()));
-    gh.factory<_i23.LoginBloc>(
-        () => _i23.LoginBloc(loginUsecase: gh<_i17.AuthUseCase>()));
-    gh.lazySingleton<_i24.PerdasBloc>(
-        () => _i24.PerdasBloc(gh<_i14.SetLoserUseCase>()));
-    gh.singleton<_i25.SetorBloc>(_i25.SetorBloc(
-      gh<_i22.IGetSetoresUsecase>(),
-      gh<_i20.GetSensorUsecase>(),
+    gh.factory<_i12.AuthRepository>(
+        () => _i13.AuthRepositoryImpl(gh<_i4.FirebaseAuth>()));
+    gh.factory<_i14.AuthUseCase>(
+        () => _i14.AuthUseCaseImpl(gh<_i12.AuthRepository>()));
+    gh.factory<_i15.GetSensorUsecase>(
+        () => _i15.GetSensorUsecaseImp(gh<_i10.ISetorRepository>()));
+    gh.factory<_i16.IGetSensor>(
+        () => _i16.GetSensor(gh<_i8.ISensorRepository>()));
+    gh.factory<_i17.IGetSetoresUsecase>(
+        () => _i17.GetSetoresUsecase(gh<_i10.ISetorRepository>()));
+    gh.factory<_i18.LoginBloc>(
+        () => _i18.LoginBloc(loginUsecase: gh<_i14.AuthUseCase>()));
+    gh.singleton<_i19.SetorBloc>(_i19.SetorBloc(
+      gh<_i17.IGetSetoresUsecase>(),
+      gh<_i15.GetSensorUsecase>(),
     ));
-    gh.lazySingleton<_i26.DetailsSensorBloc>(() => _i26.DetailsSensorBloc(
-          gh<_i21.IGetSensor>(),
-          gh<_i19.GetPerdasCountUseCase>(),
-        ));
+    gh.factory<_i20.DetailsSensorBloc>(
+        () => _i20.DetailsSensorBloc(gh<_i16.IGetSensor>()));
     return this;
   }
 }
 
-class _$FirebaseInjectableModule extends _i27.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i21.FirebaseInjectableModule {}

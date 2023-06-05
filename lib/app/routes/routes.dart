@@ -7,12 +7,13 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: LoginPageRoute.page, path: LOGIN),
-        AutoRoute(page: DetailsPageRoute.page, path: DETALHES_SENSOR),
+        AutoRoute(guards: [AuthGuard()],page: DetailsPageRoute.page, path: DETALHES_SENSOR),
+        AutoRoute(guards: [AuthGuard()],page: TrackingDetailsPageRoute.page, path: DETAILS_TRACKING),
         AutoRoute(
           initial: true,
           page: HomeViewRoute.page,
           path: DASHBOARD,
-          //guards: [AuthGuard()],
+          guards: [AuthGuard()],
           children: [
             RedirectRoute(path: '', redirectTo: SETORES),
             AutoRoute(
@@ -20,11 +21,10 @@ class AppRouter extends $AppRouter {
               path: SETORES,
             ),
             AutoRoute(page: HistoricoPageRoute.page, path: HISTORICO),
-            AutoRoute(page: TrackingPageRoute.page, path: TRACKING, children: [
-              AutoRoute(
-                  page: TrackingDetailsPageRoute.page, path: DETAILS_TRACKING),
-            ]),
-            AutoRoute(page: PerdasPageRoute.page, path: PERDAS),
+            AutoRoute(
+              page: TrackingPageRoute.page,
+              path: TRACKING,
+            ),
           ],
         )
       ];

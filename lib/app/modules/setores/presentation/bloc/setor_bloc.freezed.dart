@@ -22,6 +22,7 @@ mixin _$SetorEvent {
     required TResult Function() loadSetores,
     required TResult Function() getSetores,
     required TResult Function(String id) getSensores,
+    required TResult Function() changeInitial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$SetorEvent {
     TResult? Function()? loadSetores,
     TResult? Function()? getSetores,
     TResult? Function(String id)? getSensores,
+    TResult? Function()? changeInitial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$SetorEvent {
     TResult Function()? loadSetores,
     TResult Function()? getSetores,
     TResult Function(String id)? getSensores,
+    TResult Function()? changeInitial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$SetorEvent {
     required TResult Function(_LoadSetores value) loadSetores,
     required TResult Function(_getSetores value) getSetores,
     required TResult Function(_getSensores value) getSensores,
+    required TResult Function(_changeInitial value) changeInitial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$SetorEvent {
     TResult? Function(_LoadSetores value)? loadSetores,
     TResult? Function(_getSetores value)? getSetores,
     TResult? Function(_getSensores value)? getSensores,
+    TResult? Function(_changeInitial value)? changeInitial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$SetorEvent {
     TResult Function(_LoadSetores value)? loadSetores,
     TResult Function(_getSetores value)? getSetores,
     TResult Function(_getSensores value)? getSensores,
+    TResult Function(_changeInitial value)? changeInitial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +133,7 @@ class _$_Started implements _Started {
     required TResult Function() loadSetores,
     required TResult Function() getSetores,
     required TResult Function(String id) getSensores,
+    required TResult Function() changeInitial,
   }) {
     return started();
   }
@@ -138,6 +145,7 @@ class _$_Started implements _Started {
     TResult? Function()? loadSetores,
     TResult? Function()? getSetores,
     TResult? Function(String id)? getSensores,
+    TResult? Function()? changeInitial,
   }) {
     return started?.call();
   }
@@ -149,6 +157,7 @@ class _$_Started implements _Started {
     TResult Function()? loadSetores,
     TResult Function()? getSetores,
     TResult Function(String id)? getSensores,
+    TResult Function()? changeInitial,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -164,6 +173,7 @@ class _$_Started implements _Started {
     required TResult Function(_LoadSetores value) loadSetores,
     required TResult Function(_getSetores value) getSetores,
     required TResult Function(_getSensores value) getSensores,
+    required TResult Function(_changeInitial value) changeInitial,
   }) {
     return started(this);
   }
@@ -175,6 +185,7 @@ class _$_Started implements _Started {
     TResult? Function(_LoadSetores value)? loadSetores,
     TResult? Function(_getSetores value)? getSetores,
     TResult? Function(_getSensores value)? getSensores,
+    TResult? Function(_changeInitial value)? changeInitial,
   }) {
     return started?.call(this);
   }
@@ -186,6 +197,7 @@ class _$_Started implements _Started {
     TResult Function(_LoadSetores value)? loadSetores,
     TResult Function(_getSetores value)? getSetores,
     TResult Function(_getSensores value)? getSensores,
+    TResult Function(_changeInitial value)? changeInitial,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -241,6 +253,7 @@ class _$_LoadSetores implements _LoadSetores {
     required TResult Function() loadSetores,
     required TResult Function() getSetores,
     required TResult Function(String id) getSensores,
+    required TResult Function() changeInitial,
   }) {
     return loadSetores();
   }
@@ -252,6 +265,7 @@ class _$_LoadSetores implements _LoadSetores {
     TResult? Function()? loadSetores,
     TResult? Function()? getSetores,
     TResult? Function(String id)? getSensores,
+    TResult? Function()? changeInitial,
   }) {
     return loadSetores?.call();
   }
@@ -263,6 +277,7 @@ class _$_LoadSetores implements _LoadSetores {
     TResult Function()? loadSetores,
     TResult Function()? getSetores,
     TResult Function(String id)? getSensores,
+    TResult Function()? changeInitial,
     required TResult orElse(),
   }) {
     if (loadSetores != null) {
@@ -278,6 +293,7 @@ class _$_LoadSetores implements _LoadSetores {
     required TResult Function(_LoadSetores value) loadSetores,
     required TResult Function(_getSetores value) getSetores,
     required TResult Function(_getSensores value) getSensores,
+    required TResult Function(_changeInitial value) changeInitial,
   }) {
     return loadSetores(this);
   }
@@ -289,6 +305,7 @@ class _$_LoadSetores implements _LoadSetores {
     TResult? Function(_LoadSetores value)? loadSetores,
     TResult? Function(_getSetores value)? getSetores,
     TResult? Function(_getSensores value)? getSensores,
+    TResult? Function(_changeInitial value)? changeInitial,
   }) {
     return loadSetores?.call(this);
   }
@@ -300,6 +317,7 @@ class _$_LoadSetores implements _LoadSetores {
     TResult Function(_LoadSetores value)? loadSetores,
     TResult Function(_getSetores value)? getSetores,
     TResult Function(_getSensores value)? getSensores,
+    TResult Function(_changeInitial value)? changeInitial,
     required TResult orElse(),
   }) {
     if (loadSetores != null) {
@@ -355,6 +373,7 @@ class _$_getSetores implements _getSetores {
     required TResult Function() loadSetores,
     required TResult Function() getSetores,
     required TResult Function(String id) getSensores,
+    required TResult Function() changeInitial,
   }) {
     return getSetores();
   }
@@ -366,6 +385,7 @@ class _$_getSetores implements _getSetores {
     TResult? Function()? loadSetores,
     TResult? Function()? getSetores,
     TResult? Function(String id)? getSensores,
+    TResult? Function()? changeInitial,
   }) {
     return getSetores?.call();
   }
@@ -377,6 +397,7 @@ class _$_getSetores implements _getSetores {
     TResult Function()? loadSetores,
     TResult Function()? getSetores,
     TResult Function(String id)? getSensores,
+    TResult Function()? changeInitial,
     required TResult orElse(),
   }) {
     if (getSetores != null) {
@@ -392,6 +413,7 @@ class _$_getSetores implements _getSetores {
     required TResult Function(_LoadSetores value) loadSetores,
     required TResult Function(_getSetores value) getSetores,
     required TResult Function(_getSensores value) getSensores,
+    required TResult Function(_changeInitial value) changeInitial,
   }) {
     return getSetores(this);
   }
@@ -403,6 +425,7 @@ class _$_getSetores implements _getSetores {
     TResult? Function(_LoadSetores value)? loadSetores,
     TResult? Function(_getSetores value)? getSetores,
     TResult? Function(_getSensores value)? getSensores,
+    TResult? Function(_changeInitial value)? changeInitial,
   }) {
     return getSetores?.call(this);
   }
@@ -414,6 +437,7 @@ class _$_getSetores implements _getSetores {
     TResult Function(_LoadSetores value)? loadSetores,
     TResult Function(_getSetores value)? getSetores,
     TResult Function(_getSensores value)? getSensores,
+    TResult Function(_changeInitial value)? changeInitial,
     required TResult orElse(),
   }) {
     if (getSetores != null) {
@@ -495,6 +519,7 @@ class _$_getSensores implements _getSensores {
     required TResult Function() loadSetores,
     required TResult Function() getSetores,
     required TResult Function(String id) getSensores,
+    required TResult Function() changeInitial,
   }) {
     return getSensores(id);
   }
@@ -506,6 +531,7 @@ class _$_getSensores implements _getSensores {
     TResult? Function()? loadSetores,
     TResult? Function()? getSetores,
     TResult? Function(String id)? getSensores,
+    TResult? Function()? changeInitial,
   }) {
     return getSensores?.call(id);
   }
@@ -517,6 +543,7 @@ class _$_getSensores implements _getSensores {
     TResult Function()? loadSetores,
     TResult Function()? getSetores,
     TResult Function(String id)? getSensores,
+    TResult Function()? changeInitial,
     required TResult orElse(),
   }) {
     if (getSensores != null) {
@@ -532,6 +559,7 @@ class _$_getSensores implements _getSensores {
     required TResult Function(_LoadSetores value) loadSetores,
     required TResult Function(_getSetores value) getSetores,
     required TResult Function(_getSensores value) getSensores,
+    required TResult Function(_changeInitial value) changeInitial,
   }) {
     return getSensores(this);
   }
@@ -543,6 +571,7 @@ class _$_getSensores implements _getSensores {
     TResult? Function(_LoadSetores value)? loadSetores,
     TResult? Function(_getSetores value)? getSetores,
     TResult? Function(_getSensores value)? getSensores,
+    TResult? Function(_changeInitial value)? changeInitial,
   }) {
     return getSensores?.call(this);
   }
@@ -554,6 +583,7 @@ class _$_getSensores implements _getSensores {
     TResult Function(_LoadSetores value)? loadSetores,
     TResult Function(_getSetores value)? getSetores,
     TResult Function(_getSensores value)? getSensores,
+    TResult Function(_changeInitial value)? changeInitial,
     required TResult orElse(),
   }) {
     if (getSensores != null) {
@@ -573,12 +603,133 @@ abstract class _getSensores implements SetorEvent {
 }
 
 /// @nodoc
+abstract class _$$_changeInitialCopyWith<$Res> {
+  factory _$$_changeInitialCopyWith(
+          _$_changeInitial value, $Res Function(_$_changeInitial) then) =
+      __$$_changeInitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_changeInitialCopyWithImpl<$Res>
+    extends _$SetorEventCopyWithImpl<$Res, _$_changeInitial>
+    implements _$$_changeInitialCopyWith<$Res> {
+  __$$_changeInitialCopyWithImpl(
+      _$_changeInitial _value, $Res Function(_$_changeInitial) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_changeInitial implements _changeInitial {
+  const _$_changeInitial();
+
+  @override
+  String toString() {
+    return 'SetorEvent.changeInitial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_changeInitial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() loadSetores,
+    required TResult Function() getSetores,
+    required TResult Function(String id) getSensores,
+    required TResult Function() changeInitial,
+  }) {
+    return changeInitial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? loadSetores,
+    TResult? Function()? getSetores,
+    TResult? Function(String id)? getSensores,
+    TResult? Function()? changeInitial,
+  }) {
+    return changeInitial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loadSetores,
+    TResult Function()? getSetores,
+    TResult Function(String id)? getSensores,
+    TResult Function()? changeInitial,
+    required TResult orElse(),
+  }) {
+    if (changeInitial != null) {
+      return changeInitial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_LoadSetores value) loadSetores,
+    required TResult Function(_getSetores value) getSetores,
+    required TResult Function(_getSensores value) getSensores,
+    required TResult Function(_changeInitial value) changeInitial,
+  }) {
+    return changeInitial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_LoadSetores value)? loadSetores,
+    TResult? Function(_getSetores value)? getSetores,
+    TResult? Function(_getSensores value)? getSensores,
+    TResult? Function(_changeInitial value)? changeInitial,
+  }) {
+    return changeInitial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_LoadSetores value)? loadSetores,
+    TResult Function(_getSetores value)? getSetores,
+    TResult Function(_getSensores value)? getSensores,
+    TResult Function(_changeInitial value)? changeInitial,
+    required TResult orElse(),
+  }) {
+    if (changeInitial != null) {
+      return changeInitial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _changeInitial implements SetorEvent {
+  const factory _changeInitial() = _$_changeInitial;
+}
+
+/// @nodoc
 mixin _$SetorState {
   SetorStatus get status => throw _privateConstructorUsedError;
   List<Setor>? get setores => throw _privateConstructorUsedError;
   List<SensorEntity> get listSensores => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get idSetor => throw _privateConstructorUsedError;
+  bool get isInital => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SetorStateCopyWith<SetorState> get copyWith =>
@@ -596,7 +747,8 @@ abstract class $SetorStateCopyWith<$Res> {
       List<Setor>? setores,
       List<SensorEntity> listSensores,
       String? errorMessage,
-      String? idSetor});
+      String? idSetor,
+      bool isInital});
 }
 
 /// @nodoc
@@ -617,6 +769,7 @@ class _$SetorStateCopyWithImpl<$Res, $Val extends SetorState>
     Object? listSensores = null,
     Object? errorMessage = freezed,
     Object? idSetor = freezed,
+    Object? isInital = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -639,6 +792,10 @@ class _$SetorStateCopyWithImpl<$Res, $Val extends SetorState>
           ? _value.idSetor
           : idSetor // ignore: cast_nullable_to_non_nullable
               as String?,
+      isInital: null == isInital
+          ? _value.isInital
+          : isInital // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -656,7 +813,8 @@ abstract class _$$_SetorStateCopyWith<$Res>
       List<Setor>? setores,
       List<SensorEntity> listSensores,
       String? errorMessage,
-      String? idSetor});
+      String? idSetor,
+      bool isInital});
 }
 
 /// @nodoc
@@ -675,6 +833,7 @@ class __$$_SetorStateCopyWithImpl<$Res>
     Object? listSensores = null,
     Object? errorMessage = freezed,
     Object? idSetor = freezed,
+    Object? isInital = null,
   }) {
     return _then(_$_SetorState(
       status: null == status
@@ -697,6 +856,10 @@ class __$$_SetorStateCopyWithImpl<$Res>
           ? _value.idSetor
           : idSetor // ignore: cast_nullable_to_non_nullable
               as String?,
+      isInital: null == isInital
+          ? _value.isInital
+          : isInital // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -709,7 +872,8 @@ class _$_SetorState implements _SetorState {
       final List<Setor>? setores,
       final List<SensorEntity> listSensores = const [],
       this.errorMessage,
-      this.idSetor})
+      this.idSetor,
+      this.isInital = true})
       : _setores = setores,
         _listSensores = listSensores;
 
@@ -739,10 +903,13 @@ class _$_SetorState implements _SetorState {
   final String? errorMessage;
   @override
   final String? idSetor;
+  @override
+  @JsonKey()
+  final bool isInital;
 
   @override
   String toString() {
-    return 'SetorState(status: $status, setores: $setores, listSensores: $listSensores, errorMessage: $errorMessage, idSetor: $idSetor)';
+    return 'SetorState(status: $status, setores: $setores, listSensores: $listSensores, errorMessage: $errorMessage, idSetor: $idSetor, isInital: $isInital)';
   }
 
   @override
@@ -756,7 +923,9 @@ class _$_SetorState implements _SetorState {
                 .equals(other._listSensores, _listSensores) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.idSetor, idSetor) || other.idSetor == idSetor));
+            (identical(other.idSetor, idSetor) || other.idSetor == idSetor) &&
+            (identical(other.isInital, isInital) ||
+                other.isInital == isInital));
   }
 
   @override
@@ -766,7 +935,8 @@ class _$_SetorState implements _SetorState {
       const DeepCollectionEquality().hash(_setores),
       const DeepCollectionEquality().hash(_listSensores),
       errorMessage,
-      idSetor);
+      idSetor,
+      isInital);
 
   @JsonKey(ignore: true)
   @override
@@ -781,7 +951,8 @@ abstract class _SetorState implements SetorState {
       final List<Setor>? setores,
       final List<SensorEntity> listSensores,
       final String? errorMessage,
-      final String? idSetor}) = _$_SetorState;
+      final String? idSetor,
+      final bool isInital}) = _$_SetorState;
 
   @override
   SetorStatus get status;
@@ -793,6 +964,8 @@ abstract class _SetorState implements SetorState {
   String? get errorMessage;
   @override
   String? get idSetor;
+  @override
+  bool get isInital;
   @override
   @JsonKey(ignore: true)
   _$$_SetorStateCopyWith<_$_SetorState> get copyWith =>

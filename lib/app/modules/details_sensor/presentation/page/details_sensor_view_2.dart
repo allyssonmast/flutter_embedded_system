@@ -1,6 +1,4 @@
 import 'package:embedded_system/app/modules/details_sensor/domain/entity/sensor.dart';
-import 'package:embedded_system/app/modules/historico_sensores/domain/entity/perda.dart';
-import 'package:embedded_system/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,9 +28,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
   Widget build(BuildContext context) {
     List<SensorEntity> listSensores =
         context.watch<DetailsSensorBloc>().state.sensores ?? [];
-    Perda? perda = context.watch<DetailsSensorBloc>().state.perda;
     var sensorLast = _searchDerivadas(listSensores);
-    print("${widget.setorId}/${widget.sensorId}");
     return Scaffold(
       appBar: AppBar(
         title: Column(
@@ -56,7 +52,6 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
               child: IconButton(
                 onPressed: () async {
                   dateTime = DateTime.now();
-
                   context.read<DetailsSensorBloc>().add(
                       DetailsSensorEvent.featData(
                           "${widget.setorId}/${widget.sensorId}", dateTime));
@@ -75,18 +70,25 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
               margin: const EdgeInsets.symmetric(horizontal: 8),
               child: ListTile(
                 onTap: () async {
-                  var result = await showDatePicker(
+                  await showDatePicker(
                     context: context,
                     initialDate: dateTime,
                     locale: const Locale('pt', 'BR'),
                     firstDate: DateTime.now().add(const Duration(days: -365)),
                     lastDate: DateTime.now(),
-                  );
-                  if (result != null) {
-                    dateTime = result;
-                    getIt<DetailsSensorBloc>().add(
-                        DetailsSensorEvent.featData(widget.sensorId, dateTime));
-                  }
+                  ).then((value) {
+                    if (value != null) {
+
+                      dateTime = value;
+                      setState(() {
+
+                      });
+                      context.read<DetailsSensorBloc>().add(
+                          DetailsSensorEvent.featData(
+                              "${widget.setorId}/${widget.sensorId}",
+                              dateTime));
+                    }
+                  });
                 },
                 horizontalTitleGap: 4,
                 leading: const Icon(Icons.calendar_month_outlined),
@@ -100,6 +102,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
                 children: [
                   Expanded(
                     child: DetailsWidgetCard(
+                      value: listSensores.last.temperatura,
                       iconData: FontAwesomeIcons.temperatureHalf,
                       temperatura: 'Última temperatura',
                       valueTemperatura: '${listSensores.last.temperatura} °',
@@ -108,6 +111,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
                   ),
                   Expanded(
                     child: DetailsWidgetCard(
+                      value: 0,
                       iconData: Icons.water_drop,
                       temperatura: 'Última umidade',
                       valueTemperatura: '${listSensores.last.humidade} %',
@@ -158,25 +162,6 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
                 );
               },
             ),
-            Card(
-              margin: EdgeInsets.all(8.0.sp),
-              child: ListTile(
-                subtitle: Text(perda != null
-                    ? perda.isEgg
-                        ? 'Ovos'
-                        : 'Galinhas'
-                    : 'Sem perdas'),
-                title: const Text(
-                  'Perdas',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-                trailing: CircleAvatar(
-                  child: Text(perda != null ? perda.count.toString() : '0'),
-                ),
-              ),
-            )
           ],
         ),
       ),

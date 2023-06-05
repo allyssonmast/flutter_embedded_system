@@ -14,7 +14,6 @@ class GraficoWidget extends StatelessWidget {
       children: [
         SfCartesianChart(
           title: ChartTitle(text: 'Temperatura e umidade durante o dia'),
-
           legend: Legend(isVisible: true, position: LegendPosition.bottom),
           axes: <ChartAxis>[
             NumericAxis(
@@ -27,19 +26,18 @@ class GraficoWidget extends StatelessWidget {
               minimum: 0,
             ),
           ],
-
           primaryXAxis: DateTimeAxis(
             //Specified date time interval type in hours
             title: AxisTitle(text: 'Horas'),
             intervalType: DateTimeIntervalType.hours,
             dateFormat: DateFormat('HH:mm'),
-            interval: 4,
+            interval: 3,
             labelFormat: '{value}h',
           ),
           primaryYAxis: NumericAxis(
             title: AxisTitle(text: 'Temperaturas'),
-            maximum: 40,
-            interval: 5,
+            maximum: 50,
+            interval: 10,
             labelFormat: '{value}°C',
             minimum: 20,
           ),
@@ -50,13 +48,18 @@ class GraficoWidget extends StatelessWidget {
           ),
           tooltipBehavior: TooltipBehavior(enable: true),
           series: <ChartSeries<SensorEntity, DateTime>>[
-            LineSeries<SensorEntity, DateTime>(
+            StackedLineSeries<SensorEntity, DateTime>(
               dataSource: data,
               xAxisName: 'name',
               xValueMapper: (SensorEntity sales, _) => sales.timestamp,
               yValueMapper: (SensorEntity sales, _) => sales.temperatura,
               name: 'Temperaduras',
-              dataLabelSettings: const DataLabelSettings(isVisible: false),
+              markerSettings:const MarkerSettings(
+                isVisible: true,
+              ),
+              dataLabelSettings: const DataLabelSettings(
+                isVisible: false,
+              ),
             ),
             LineSeries<SensorEntity, DateTime>(
               dataSource: data,
@@ -64,6 +67,9 @@ class GraficoWidget extends StatelessWidget {
               xValueMapper: (SensorEntity sales, _) => sales.timestamp,
               yValueMapper: (SensorEntity sales, _) => sales.humidade,
               name: 'Umidade',
+              markerSettings:const MarkerSettings(
+                isVisible: true,
+              ),
               yAxisName: 'yAxis',
               dataLabelSettings: const DataLabelSettings(isVisible: false),
             )

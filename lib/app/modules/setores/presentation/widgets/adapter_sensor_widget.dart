@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../routes/routes_imports.gr.dart';
+
 class AdapterSensorWidget extends StatelessWidget {
   final SensorEntity sensorEntity;
   final String idSetor;
-  const AdapterSensorWidget({Key? key, required this.sensorEntity, required this.idSetor})
+  const AdapterSensorWidget(
+      {Key? key, required this.sensorEntity, required this.idSetor})
       : super(key: key);
 
   @override
@@ -15,8 +18,10 @@ class AdapterSensorWidget extends StatelessWidget {
     return Card(
       color: sensorEntity.temperatura > 32.0 ? Colors.red.shade700 : null,
       child: InkWell(
-        onTap: (){
-          context.router.pushNamed('/detalhaes-sensor/$idSetor/${sensorEntity.dispositivo}');
+        onTap: () {
+          context.router.push(DetailsPageRoute(
+              sensorId:sensorEntity.dispositivo.toLowerCase() ,
+              setorID:idSetor ));
         },
         child: Container(
           padding: const EdgeInsets.all(16),

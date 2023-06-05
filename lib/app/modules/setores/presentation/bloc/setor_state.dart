@@ -24,5 +24,7 @@ class SetorState with _$SetorState {
     List<SensorEntity> listSensores,
     String? errorMessage,
     String? idSetor,
+    @Default(true)
+    bool isInital,
   }) = _SetorState;
 }

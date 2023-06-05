@@ -18,6 +18,6 @@ class Setor {
           fontPackage: 'font_awesome_flutter',
         ),
         name: json['name'],
-        listSensores: List.from(json['listSensores']),
+        listSensores: List.from(json['listSensores']??[]),
       );
 }

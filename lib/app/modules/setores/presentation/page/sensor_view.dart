@@ -34,6 +34,8 @@ class _SensorViewState extends State<SensorView> {
     var listSetores = context.watch<SetorBloc>().state.setores ?? [];
     var listSensores = context.watch<SetorBloc>().state.listSensores;
     var setoresId = context.watch<SetorBloc>().state.idSetor;
+    var isErrorBack = context.watch<SetorBloc>().state.status.isErrorBack;
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,9 +57,11 @@ class _SensorViewState extends State<SensorView> {
                 return SetoresCard(
                   setores: listSetores[index],
                   select: () {
-                    context
-                        .read<SetorBloc>()
-                        .add(SetorEvent.getSensores(listSetores[index].name));
+                    if (isErrorBack) {
+                      context
+                          .read<SetorBloc>()
+                          .add(SetorEvent.getSensores(listSetores[index].name));
+                    }
                   },
                   isSelected: listSetores[index].name == setoresId,
                 );

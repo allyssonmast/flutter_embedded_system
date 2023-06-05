@@ -20,8 +20,9 @@ class SetoresPage extends StatelessWidget {
         if (state.status.isError) {
           showSnackbar(context, state.errorMessage ?? 'Erro');
         }
-        if (state.status.isErrorBack) {
+        if (state.status.isErrorBack && state.isInital ) {
           showSnackbar(context, 'Você não está conectado a rede local!');
+          context.read<SetorBloc>().add(const SetorEvent.changeInitial());
         }
       },
       builder: (context, state) {

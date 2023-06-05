@@ -445,7 +445,6 @@ abstract class _Feated implements DetailsSensorEvent {
 mixin _$DetailsSensorState {
   DetailsSensorStatus get status => throw _privateConstructorUsedError;
   List<SensorEntity>? get sensores => throw _privateConstructorUsedError;
-  Perda? get perda => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -462,10 +461,7 @@ abstract class $DetailsSensorStateCopyWith<$Res> {
   $Res call(
       {DetailsSensorStatus status,
       List<SensorEntity>? sensores,
-      Perda? perda,
       String? errorMessage});
-
-  $PerdaCopyWith<$Res>? get perda;
 }
 
 /// @nodoc
@@ -483,7 +479,6 @@ class _$DetailsSensorStateCopyWithImpl<$Res, $Val extends DetailsSensorState>
   $Res call({
     Object? status = null,
     Object? sensores = freezed,
-    Object? perda = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -495,27 +490,11 @@ class _$DetailsSensorStateCopyWithImpl<$Res, $Val extends DetailsSensorState>
           ? _value.sensores
           : sensores // ignore: cast_nullable_to_non_nullable
               as List<SensorEntity>?,
-      perda: freezed == perda
-          ? _value.perda
-          : perda // ignore: cast_nullable_to_non_nullable
-              as Perda?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PerdaCopyWith<$Res>? get perda {
-    if (_value.perda == null) {
-      return null;
-    }
-
-    return $PerdaCopyWith<$Res>(_value.perda!, (value) {
-      return _then(_value.copyWith(perda: value) as $Val);
-    });
   }
 }
 
@@ -530,11 +509,7 @@ abstract class _$$_DetailsSensorStateCopyWith<$Res>
   $Res call(
       {DetailsSensorStatus status,
       List<SensorEntity>? sensores,
-      Perda? perda,
       String? errorMessage});
-
-  @override
-  $PerdaCopyWith<$Res>? get perda;
 }
 
 /// @nodoc
@@ -550,7 +525,6 @@ class __$$_DetailsSensorStateCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? sensores = freezed,
-    Object? perda = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(_$_DetailsSensorState(
@@ -562,10 +536,6 @@ class __$$_DetailsSensorStateCopyWithImpl<$Res>
           ? _value._sensores
           : sensores // ignore: cast_nullable_to_non_nullable
               as List<SensorEntity>?,
-      perda: freezed == perda
-          ? _value.perda
-          : perda // ignore: cast_nullable_to_non_nullable
-              as Perda?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -580,7 +550,6 @@ class _$_DetailsSensorState implements _DetailsSensorState {
   const _$_DetailsSensorState(
       {this.status = DetailsSensorStatus.initial,
       final List<SensorEntity>? sensores,
-      this.perda,
       this.errorMessage})
       : _sensores = sensores;
 
@@ -598,13 +567,11 @@ class _$_DetailsSensorState implements _DetailsSensorState {
   }
 
   @override
-  final Perda? perda;
-  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'DetailsSensorState(status: $status, sensores: $sensores, perda: $perda, errorMessage: $errorMessage)';
+    return 'DetailsSensorState(status: $status, sensores: $sensores, errorMessage: $errorMessage)';
   }
 
   @override
@@ -614,14 +581,13 @@ class _$_DetailsSensorState implements _DetailsSensorState {
             other is _$_DetailsSensorState &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._sensores, _sensores) &&
-            (identical(other.perda, perda) || other.perda == perda) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status,
-      const DeepCollectionEquality().hash(_sensores), perda, errorMessage);
+      const DeepCollectionEquality().hash(_sensores), errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -635,15 +601,12 @@ abstract class _DetailsSensorState implements DetailsSensorState {
   const factory _DetailsSensorState(
       {final DetailsSensorStatus status,
       final List<SensorEntity>? sensores,
-      final Perda? perda,
       final String? errorMessage}) = _$_DetailsSensorState;
 
   @override
   DetailsSensorStatus get status;
   @override
   List<SensorEntity>? get sensores;
-  @override
-  Perda? get perda;
   @override
   String? get errorMessage;
   @override

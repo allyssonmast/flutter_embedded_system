@@ -6,19 +6,21 @@ class DetailsWidgetCard extends StatelessWidget {
   final String valueTemperatura;
   final String idealValue;
   final IconData iconData;
+  final double value;
 
   const DetailsWidgetCard(
       {Key? key,
       required this.temperatura,
       required this.valueTemperatura,
       required this.idealValue,
-      required this.iconData})
+      required this.iconData, required this.value})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.all(8),
+      color: value > 32.0 ? Colors.red.shade700 : null,
       child: Container(
         padding: const EdgeInsets.all(16),
         height: 200,
@@ -39,7 +41,7 @@ class DetailsWidgetCard extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text('Ideal entre: $idealValue'),
+              child: Text('Ideal: $idealValue'),
             )
           ],
         ),

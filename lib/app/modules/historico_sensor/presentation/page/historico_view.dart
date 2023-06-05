@@ -45,8 +45,9 @@ class _HistoricoViewState extends State<HistoricoView> {
                 String value = list[selectedIndex].listSensores[index];
                 return ListTile(
                   onTap: () {
-                    context.router
-                        .push(DetailsPageRoute(sensorId: value, setorID: ''));
+                    context.router.push(DetailsPageRoute(
+                        sensorId: value,
+                        setorID: list[selectedIndex].name.toLowerCase()));
                   },
                   title: Text(value),
                   trailing: const Icon(Icons.arrow_forward_ios),
