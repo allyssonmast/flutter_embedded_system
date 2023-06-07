@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "default": "granja-dd887",
+    "datafarm": "granja-dd887"
+  },
+  "targets": {
+    "granja-dd887": {
+      "hosting": {
+        "datafarm": [
+          "datafarm"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

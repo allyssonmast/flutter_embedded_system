@@ -57,7 +57,7 @@ class AdapterSensorWidget extends StatelessWidget {
                             ),
                             const Padding(
                               padding: EdgeInsets.symmetric(vertical: 8.0),
-                              child: Text('Ideal: 27° - 35°'),
+                              child: Text('Ideal: 24° - 31°'),
                             )
                           ],
                         ),
@@ -83,7 +83,7 @@ class AdapterSensorWidget extends StatelessWidget {
                             ),
                             const Padding(
                               padding: EdgeInsets.symmetric(vertical: 8.0),
-                              child: Text('Ideal: 50% - 80%'),
+                              child: Text('Ideal: 70% - 80%'),
                             )
                           ],
                         ),

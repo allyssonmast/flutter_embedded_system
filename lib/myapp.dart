@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp.router(
-          title: "Vitagema",
+          title: "Agrosoft",
           routeInformationParser: _appRouter.defaultRouteParser(),
           routerDelegate: _appRouter.delegate(
             navigatorObservers: () => [

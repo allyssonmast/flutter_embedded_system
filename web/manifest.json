@@ -1,11 +1,11 @@
 {
-    "name": "embedded_system",
-    "short_name": "embedded_system",
+    "name": "Agrosoft",
+    "short_name": "Agrosoft",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#4caf50",
+    "theme_color": "#4caf50",
+    "description": "Maximizando a eficiência e a produtividade com análise de dados estratégica",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

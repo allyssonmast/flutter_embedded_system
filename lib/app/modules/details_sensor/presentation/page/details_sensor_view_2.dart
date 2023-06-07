@@ -106,7 +106,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
                       iconData: FontAwesomeIcons.temperatureHalf,
                       temperatura: 'Última temperatura',
                       valueTemperatura: '${listSensores.last.temperatura} °',
-                      idealValue: '27° até 35°',
+                      idealValue: '24° até 31°',
                     ),
                   ),
                   Expanded(
@@ -115,7 +115,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
                       iconData: Icons.water_drop,
                       temperatura: 'Última umidade',
                       valueTemperatura: '${listSensores.last.humidade} %',
-                      idealValue: '50 % até 80 %',
+                      idealValue: '70 % até 80 %',
                     ),
                   ),
                 ],
