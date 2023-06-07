@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../helpers/error/login/failure.dart';
@@ -17,6 +18,9 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final result = await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
+      if (kIsWeb) {
+        await _firebaseAuth.setPersistence(Persistence.SESSION);
+      }
       final user = result.user!;
       return right(user);
     } on FirebaseAuthException catch (e) {

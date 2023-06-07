@@ -17,7 +17,6 @@ class SensorRepository implements ISensorRepository {
   @override
   Future<Either<Failure, List<SensorEntity>>> getSensor(
       String id, String dateTime) async {
-    print(id);
     String startDateTime = '$dateTime 00:00:00.000000';
     String endDateTime = '$dateTime 23:59:59.999999';
     List<SensorEntity> result = await _database

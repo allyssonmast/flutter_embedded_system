@@ -17,22 +17,23 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:http/http.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'app/config/firebase_modules_injectable.dart' as _i21;
+import 'app/config/firebase_modules_injectable.dart' as _i22;
 import 'app/modules/details_sensor/data/repository.dart' as _i9;
 import 'app/modules/details_sensor/domain/repository/repository.dart' as _i8;
 import 'app/modules/details_sensor/domain/usecases/getSensor_usecase.dart'
-    as _i16;
+    as _i17;
 import 'app/modules/details_sensor/presentation/bloc/details_sensor_bloc.dart'
-    as _i20;
+    as _i21;
 import 'app/modules/login/data/repositories/auth_repository_impl.dart' as _i13;
 import 'app/modules/login/domain/repositories/auth_repository.dart' as _i12;
 import 'app/modules/login/domain/usecases/auth_use_case.dart' as _i14;
-import 'app/modules/login/presentation/bloc/login_bloc.dart' as _i18;
+import 'app/modules/login/presentation/bloc/login_bloc.dart' as _i19;
 import 'app/modules/setores/data/repository.dart' as _i11;
 import 'app/modules/setores/domain/repository/setor_repository.dart' as _i10;
 import 'app/modules/setores/domain/usecase/getSensor.dart' as _i15;
-import 'app/modules/setores/domain/usecase/getSetores.dart' as _i17;
-import 'app/modules/setores/presentation/bloc/setor_bloc.dart' as _i19;
+import 'app/modules/setores/domain/usecase/getSetores.dart' as _i18;
+import 'app/modules/setores/domain/usecase/getStreamSensor.dart' as _i16;
+import 'app/modules/setores/presentation/bloc/setor_bloc.dart' as _i20;
 
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -60,6 +61,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i10.ISetorRepository>(() => _i11.SensorRepository(
           gh<_i6.FirebaseFirestore>(),
           gh<_i3.Client>(),
+          gh<_i5.FirebaseDatabase>(),
         ));
     gh.factory<_i12.AuthRepository>(
         () => _i13.AuthRepositoryImpl(gh<_i4.FirebaseAuth>()));
@@ -67,20 +69,23 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i14.AuthUseCaseImpl(gh<_i12.AuthRepository>()));
     gh.factory<_i15.GetSensorUsecase>(
         () => _i15.GetSensorUsecaseImp(gh<_i10.ISetorRepository>()));
-    gh.factory<_i16.IGetSensor>(
-        () => _i16.GetSensor(gh<_i8.ISensorRepository>()));
-    gh.factory<_i17.IGetSetoresUsecase>(
-        () => _i17.GetSetoresUsecase(gh<_i10.ISetorRepository>()));
-    gh.factory<_i18.LoginBloc>(
-        () => _i18.LoginBloc(loginUsecase: gh<_i14.AuthUseCase>()));
-    gh.singleton<_i19.SetorBloc>(_i19.SetorBloc(
-      gh<_i17.IGetSetoresUsecase>(),
+    gh.factory<_i16.GetStreamUsecase>(
+        () => _i16.GetStreamUsecaseImp(gh<_i10.ISetorRepository>()));
+    gh.factory<_i17.IGetSensor>(
+        () => _i17.GetSensor(gh<_i8.ISensorRepository>()));
+    gh.factory<_i18.IGetSetoresUsecase>(
+        () => _i18.GetSetoresUsecase(gh<_i10.ISetorRepository>()));
+    gh.factory<_i19.LoginBloc>(
+        () => _i19.LoginBloc(loginUsecase: gh<_i14.AuthUseCase>()));
+    gh.singleton<_i20.SetorBloc>(_i20.SetorBloc(
+      gh<_i18.IGetSetoresUsecase>(),
       gh<_i15.GetSensorUsecase>(),
+      gh<_i16.GetStreamUsecase>(),
     ));
-    gh.factory<_i20.DetailsSensorBloc>(
-        () => _i20.DetailsSensorBloc(gh<_i16.IGetSensor>()));
+    gh.factory<_i21.DetailsSensorBloc>(
+        () => _i21.DetailsSensorBloc(gh<_i17.IGetSensor>()));
     return this;
   }
 }
 
-class _$FirebaseInjectableModule extends _i21.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i22.FirebaseInjectableModule {}

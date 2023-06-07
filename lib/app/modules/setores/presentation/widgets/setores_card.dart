@@ -23,7 +23,7 @@ class SetoresCard extends StatelessWidget {
         onTap: select,
         child: SizedBox(
           height: 80.sp,
-          width: 120.sp,
+          width: 125.sp,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -32,7 +32,7 @@ class SetoresCard extends StatelessWidget {
                 size: 25.sp,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0.sp),
                 child: Text(setores.name),
               )
             ],

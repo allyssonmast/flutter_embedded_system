@@ -1,4 +1,4 @@
-package com.example.embedded_system
+package com.allyssonmast.agrosoft
 
 import io.flutter.embedding.android.FlutterActivity
 

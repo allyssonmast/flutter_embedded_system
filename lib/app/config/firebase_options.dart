@@ -56,7 +56,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAtw_EPjnCjP2PL5AJmFoEAOG2rMROTzb8',
-    appId: '1:330379483771:android:2c3f022c18b8c2f776a0de',
+    appId: '1:330379483771:android:8ebfb288023c7eb476a0de',
     messagingSenderId: '330379483771',
     projectId: 'granja-dd887',
     databaseURL: 'https://granja-dd887-default-rtdb.firebaseio.com',

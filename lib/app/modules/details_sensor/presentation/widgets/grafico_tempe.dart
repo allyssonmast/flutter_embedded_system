@@ -53,7 +53,7 @@ class GraficoWidget extends StatelessWidget {
               xAxisName: 'name',
               xValueMapper: (SensorEntity sales, _) => sales.timestamp,
               yValueMapper: (SensorEntity sales, _) => sales.temperatura,
-              name: 'Temperaduras',
+              name: 'Temperaturas',
               markerSettings:const MarkerSettings(
                 isVisible: true,
               ),

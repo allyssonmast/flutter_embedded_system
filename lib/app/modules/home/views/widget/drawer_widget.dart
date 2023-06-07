@@ -17,13 +17,13 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     var mapDrawer = {
       'icons': [
         Icons.sensors,
-        Icons.bar_chart,
+       // Icons.bar_chart,
         Icons.timeline,
 
       ],
       'name': [
         'Sensores',
-        'Histórico dos sensores',
+      //  'Histórico dos sensores',
         'Rastreamento',
       ],
     };

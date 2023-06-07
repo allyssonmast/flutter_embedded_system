@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_strategy/url_strategy.dart';
 import 'app/helpers/notifications/push_notification.dart';
-import 'app/set_logout.dart';
 import 'bloc_observer.dart';
 import 'app/config/firebase_options.dart';
 import 'injection.dart';
@@ -13,9 +15,18 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setPathUrlStrategy();
   configureDependencies();
   NotificationService().init();
   Bloc.observer = TripBlocObserver();
-  scheduleLogout();
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
+  //scheduleLogout();
   runApp(const MyApp());
 }

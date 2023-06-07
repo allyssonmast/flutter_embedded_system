@@ -6,5 +6,6 @@ class SetorEvent with _$SetorEvent {
   const factory SetorEvent.loadSetores() = _LoadSetores;
   const factory SetorEvent.getSetores() = _getSetores;
   const factory SetorEvent.getSensores(String id) = _getSensores;
+  const factory SetorEvent.changeSetorName(String id) =_changeSetorName;
   const factory SetorEvent.changeInitial() = _changeInitial;
 }

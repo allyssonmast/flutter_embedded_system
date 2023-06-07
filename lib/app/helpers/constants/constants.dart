@@ -14,4 +14,4 @@ const kTextColor = Color(0xFF4D5875);
 const kDefaultPadding = 20.0;
 
 //192.168.1.5
-const apiUrl = 'http://192.168.43.125:3000/api/';
+const apiUrl = 'http://10.0.0.110:3000/api/';

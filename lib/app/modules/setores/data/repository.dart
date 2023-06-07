@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:embedded_system/app/helpers/error/login/failure.dart';
 import 'package:embedded_system/app/modules/details_sensor/domain/entity/sensor.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 
@@ -14,9 +15,10 @@ import '../domain/repository/setor_repository.dart';
 @Injectable(as: ISetorRepository)
 class SensorRepository implements ISetorRepository {
   final FirebaseFirestore _store;
+  final FirebaseDatabase _database;
   final http.Client client;
 
-  SensorRepository(this._store, this.client);
+  SensorRepository(this._store, this.client, this._database);
   @override
   Future<Either<Failure, List<Setor>>> getAll() async {
     try {
@@ -47,5 +49,15 @@ class SensorRepository implements ISetorRepository {
     } catch (e) {
       return Left(Failure.serverError());
     }
+  }
+
+  @override
+  Stream getMostRecentTemperature(String id) {
+    final reference =
+        _database.ref().child('leitura/${id.toLowerCase()}/temperatura-2');
+
+    final query = reference.orderByChild('timestemp').limitToLast(1);
+
+    return query.onValue;
   }
 }

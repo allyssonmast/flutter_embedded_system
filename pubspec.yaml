@@ -3,7 +3,7 @@ version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
 environment: 
-  sdk: '>=3.0.2 <4.0.0'
+  sdk: '>=3.0.3 <4.0.0'
 
 dependencies:
 
@@ -19,6 +19,7 @@ dependencies:
   firebase_messaging:
 
   flutter_local_notifications:
+  url_strategy:
 
   http:
 
@@ -50,6 +51,8 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+
+  change_app_package_name:
 
   auto_route_generator:
   build_runner:

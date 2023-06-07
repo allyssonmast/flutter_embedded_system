@@ -23,6 +23,7 @@ class SetorState with _$SetorState {
     @Default([])
     List<SensorEntity> listSensores,
     String? errorMessage,
+    Stream? stream,
     String? idSetor,
     @Default(true)
     bool isInital,

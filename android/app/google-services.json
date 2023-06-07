@@ -8,6 +8,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:330379483771:android:8ebfb288023c7eb476a0de",
+        "android_client_info": {
+          "package_name": "com.allyssonmast.agrosoft"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtw_EPjnCjP2PL5AJmFoEAOG2rMROTzb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:330379483771:android:2c3f022c18b8c2f776a0de",
         "android_client_info": {
           "package_name": "com.example.embedded_system"

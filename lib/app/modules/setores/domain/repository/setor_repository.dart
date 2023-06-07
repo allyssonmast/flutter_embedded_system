@@ -4,7 +4,8 @@ import 'package:embedded_system/app/modules/details_sensor/domain/entity/sensor.
 
 import '../entity/setor.dart';
 
-abstract class ISetorRepository{
-  Future<Either<Failure,List<Setor>>> getAll();
-  Future<Either<Failure,List<SensorEntity>>> getSensor(String id);
+abstract class ISetorRepository {
+  Future<Either<Failure, List<Setor>>> getAll();
+  Future<Either<Failure, List<SensorEntity>>> getSensor(String id);
+  Stream getMostRecentTemperature(String id);
 }
