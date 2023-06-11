@@ -54,7 +54,7 @@ class SensorRepository implements ISetorRepository {
   @override
   Stream getMostRecentTemperature(String id) {
     final reference =
-        _database.ref().child('leitura/${id.toLowerCase()}/temperatura-2');
+        _database.ref().child('leitura/${id.toLowerCase()}/temperatura-1');
 
     final query = reference.orderByChild('timestemp').limitToLast(1);
 

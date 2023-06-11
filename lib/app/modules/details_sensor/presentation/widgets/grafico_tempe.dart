@@ -29,7 +29,9 @@ class GraficoWidget extends StatelessWidget {
           primaryXAxis: DateTimeAxis(
             //Specified date time interval type in hours
             title: AxisTitle(text: 'Horas'),
-            intervalType: DateTimeIntervalType.hours,
+            intervalType: data.length < 4
+                ? DateTimeIntervalType.minutes
+                : DateTimeIntervalType.hours,
             dateFormat: DateFormat('HH:mm'),
             interval: 3,
             labelFormat: '{value}h',
@@ -54,7 +56,7 @@ class GraficoWidget extends StatelessWidget {
               xValueMapper: (SensorEntity sales, _) => sales.timestamp,
               yValueMapper: (SensorEntity sales, _) => sales.temperatura,
               name: 'Temperaturas',
-              markerSettings:const MarkerSettings(
+              markerSettings: const MarkerSettings(
                 isVisible: true,
               ),
               dataLabelSettings: const DataLabelSettings(
@@ -67,7 +69,7 @@ class GraficoWidget extends StatelessWidget {
               xValueMapper: (SensorEntity sales, _) => sales.timestamp,
               yValueMapper: (SensorEntity sales, _) => sales.humidade,
               name: 'Umidade',
-              markerSettings:const MarkerSettings(
+              markerSettings: const MarkerSettings(
                 isVisible: true,
               ),
               yAxisName: 'yAxis',

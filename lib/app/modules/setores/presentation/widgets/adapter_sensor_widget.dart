@@ -18,11 +18,11 @@ class AdapterSensorWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Card(
-        color: sensorEntity.temperatura > 34.0 ? Colors.red.shade700 : null,
+        color: sensorEntity.temperatura > 31.0 ? Colors.red.shade700 : null,
         child: InkWell(
           onTap: () {
             context.router.push(DetailsPageRoute(
-                sensorId:sensorEntity.dispositivo.toLowerCase() ,
+                sensorId:'temperatura-1' ,
                 setorID:idSetor ));
           },
           child: Container(

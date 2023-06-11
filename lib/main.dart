@@ -17,7 +17,12 @@ void main() async {
   );
   setPathUrlStrategy();
   configureDependencies();
-  NotificationService().init();
+  try {
+    NotificationService().init();
+  } catch (e) {
+    print(e);
+  }
+
   Bloc.observer = TripBlocObserver();
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
