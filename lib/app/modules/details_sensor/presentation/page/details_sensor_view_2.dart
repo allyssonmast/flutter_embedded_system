@@ -78,11 +78,8 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
                     lastDate: DateTime.now(),
                   ).then((value) {
                     if (value != null) {
-
                       dateTime = value;
-                      setState(() {
-
-                      });
+                      setState(() {});
                       context.read<DetailsSensorBloc>().add(
                           DetailsSensorEvent.featData(
                               "${widget.setorId}/${widget.sensorId}",
@@ -143,7 +140,7 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
             SizedBox(
               height: 10.sp,
             ),
-            GraficoWidget(data: listSensores),
+            if (listSensores.isNotEmpty) GraficoWidget(data: listSensores),
             ListView.builder(
               itemCount: sensorLast.length,
               shrinkWrap: true,
@@ -171,47 +168,24 @@ class _DetailsSensorViewState extends State<DetailsSensorView> {
 
 List<SensorEntity> _searchDerivadas(List<SensorEntity> list) {
   if (list.isNotEmpty) {
+    List<SensorEntity> sortedList = List.from(list);
     List<SensorEntity> newlist = [];
-    newlist.add(findMaxTemperature(list));
-    newlist.add(findMinTemperature(list));
-    // newlist.add(findMaxHumidity(list));
-    //newlist.add( findMinHumidity(list));
-
+    sortedList.sort((a, b) => a.temperatura.compareTo(b.temperatura));
+    SensorEntity tempMax = sortedList.last;
+    tempMax.name = 'Temperatura Máx';
+    SensorEntity tempMin = sortedList.first;
+    tempMin.name = 'Temperatura Mín';
+    newlist.add(tempMax);
+    newlist.add(tempMin);
+    sortedList.sort((a, b) => a.humidade.compareTo(b.humidade));
+    SensorEntity umiMax = sortedList.last;
+    umiMax.name = 'Umidade Máx';
+    SensorEntity umiMin = sortedList.first;
+    umiMin.name = 'Umidade Mín';
+    newlist.add(umiMax);
+    newlist.add(umiMin);
     return newlist;
   } else {
     return [];
   }
-}
-
-SensorEntity findMaxTemperature(List<SensorEntity> dataList) {
-  SensorEntity sensor = dataList.reduce(
-      (max, current) => max.temperatura > current.temperatura ? max : current);
-  sensor.name = 'Temperatura Máx';
-
-  return sensor;
-}
-
-SensorEntity findMinTemperature(List<SensorEntity> dataList) {
-  var sensor = dataList.reduce(
-      (min, current) => min.temperatura < current.temperatura ? min : current);
-
-  sensor.name = 'Temperatura Mín';
-
-  return sensor;
-}
-
-SensorEntity findMaxHumidity(List<SensorEntity> dataList) {
-  var sensor = dataList.reduce(
-      (max, current) => max.humidade > current.humidade ? max : current);
-  sensor.name = 'Umidade Máx';
-
-  return sensor;
-}
-
-SensorEntity findMinHumidity(List<SensorEntity> dataList) {
-  var sensor = dataList.reduce(
-      (min, current) => min.humidade < current.humidade ? min : current);
-  sensor.name = 'Umidade Mín';
-
-  return sensor;
 }
