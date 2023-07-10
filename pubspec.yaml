@@ -3,7 +3,7 @@ version: 1.0.0+4
 publish_to: none
 description: A new Flutter project.
 environment: 
-  sdk: '>=3.0.3 <4.0.0'
+  sdk: '>=3.0.5 <4.0.0'
 
 dependencies:
 
@@ -39,7 +39,7 @@ dependencies:
   google_fonts:
   flutter_screenutil:
   font_awesome_flutter: ^10.4.0
-  syncfusion_flutter_charts: ^20.3.47
+  syncfusion_flutter_charts: ^21.2.10
   intl:
   rounded_loading_button:
   flutter_speed_dial:
